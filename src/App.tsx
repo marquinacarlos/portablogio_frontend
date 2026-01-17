@@ -45,23 +45,33 @@
 
 
 import { Routes, Route } from 'react-router';
-import Layout from './components/Layout';
-import HomePage from './pages/HomePage';
-import BlogPage from './pages/BlogPage';
-import LoginPage from './pages/LoginPage';
+import { Layout } from './components/Layout';
+import { HomePage } from './pages/HomePage';
+import { BlogPage } from './pages/BlogPage';
+import { LoginPage } from './pages/LoginPage';
+import { NotFound } from './pages/NotFound';
+import { ProjectsPage } from './pages/ProjectsPage';
+import { ServicesPage } from './pages/ServicesPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
 
-export function App() {
+
+export const App = () => {
   return (
-    <Routes>
-      {/* Rutas Públicas envueltas en el Layout */}
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="blog" element={<BlogPage />} />
-        <Route path="login" element={<LoginPage />} />
-      </Route>
-      
-      {/* Aquí podrías añadir rutas sin Layout (como un 404) */}
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="projects" element={<ProjectsPage />} />
+          <Route path="services" element={<ServicesPage />} />
+          <Route path="blog" element={<BlogPage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

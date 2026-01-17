@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.9.1",
     "axios": "^1.13.2",
     "clsx": "^2.1.1",
     "lucide-react": "^0.561.0",
@@ -26,6 +29,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.182.0",
     "@vitejs/plugin-react-swc": "^4.2.2",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
@@ -40,7 +44,8 @@
       "vite": "npm:rolldown-vite@7.2.5"
     },
     "onlyBuiltDependencies": [
-      "@swc/core"
+      "@swc/core",
+      "@tsparticles/engine"
     ]
   }
 }
