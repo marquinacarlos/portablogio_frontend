@@ -55,7 +55,6 @@ import { ServicesPage } from './pages/ServicesPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 
-
 export const App = () => {
   return (
     <>
@@ -74,8 +73,3 @@ export const App = () => {
     </>
   );
 }
-
-
-
-
-

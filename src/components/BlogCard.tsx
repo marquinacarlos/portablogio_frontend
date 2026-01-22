@@ -24,7 +24,7 @@ interface BlogCardProps {
 export function BlogCard({ post }: BlogCardProps) {
   return (
     <>
-      <li className="flex flex-col border border-orange-500/30 rounded-sm p-1">
+      <li className="min-w-0 w-full flex flex-col border border-orange-500/30 rounded-sm p-1">
         <Link 
           to={{ pathname: '/blog/blog_slug_test'}}
           className="font-extralight text-3xl text-end uppercase text-orange-400 md:text-5xl lg:text-7xl text-balance"

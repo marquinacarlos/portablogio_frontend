@@ -1,11 +1,23 @@
 import clsx from "clsx";
 import { useLayoutEffect, useRef, useState } from "react";
+import type { PropsWithChildren } from "react";
 
-interface TechnicalSkillListProps {
-  skills: string[];
+interface CarouselItemProps {
+  item: string;
 }
 
-export const TechnicalSkillList = ({ skills }: TechnicalSkillListProps) => {
+const CarouselItems = ({ item }: CarouselItemProps) => {
+  return (
+    <li
+      key={item}
+      className="shrink-0 inline-block w-fit px-3 py-1 bg-neutral-800/50 border border-neutral-700 rounded-md text-sm text-cyan-400 font-medium whitespace-nowrap"
+    >
+      {item}
+    </li>
+  );
+};
+
+export const CarouselOfItems = ({ children }: PropsWithChildren) => {
   const [isNotScroll, setIsNotScroll] = useState<boolean>(false);
   const listRef = useRef<HTMLUListElement | null>(null);
 
@@ -13,20 +25,18 @@ export const TechnicalSkillList = ({ skills }: TechnicalSkillListProps) => {
     const el = listRef.current;
     if (!el) return;
 
-    // Usamos un ResizeObserver para medir el scroll de forma más robusta
+    let timeout: number;
+
     const checkScroll = () => {
       const hasOverflow = el.scrollWidth > el.clientWidth;
       setIsNotScroll(!hasOverflow);
 
       if (hasOverflow) {
-        // Animación inicial de scroll
         el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
         
-        const timeout = setTimeout(() => {
+        timeout = setTimeout(() => {
           el.scrollTo({ left: 0, behavior: "smooth" });
         }, 800);
-        
-        return () => clearTimeout(timeout);
       }
     };
 
@@ -38,14 +48,17 @@ export const TechnicalSkillList = ({ skills }: TechnicalSkillListProps) => {
 		// "Espera, justo antes de que dibujes el siguiente cuadro, por favor ejecuta esta función".
     const frame = requestAnimationFrame(checkScroll);
 
-    return () => cancelAnimationFrame(frame);
+    return () => {
+      cancelAnimationFrame(frame);
+      if (timeout) clearTimeout(timeout);
+    };
   }, []);
 
   return (
     <ul
       ref={listRef}
       className={clsx(
-        "flex space-x-2 overflow-x-auto no-scrollbar my-2 px-4 w-full max-w-md",
+        "min-w-0 w-full my-2 px-4 flex space-x-2 overflow-x-auto no-scrollbar whitespace-nowrap py-2",
         isNotScroll ? "justify-end" : "justify-start"
       )}
       style={{
@@ -53,14 +66,9 @@ export const TechnicalSkillList = ({ skills }: TechnicalSkillListProps) => {
         WebkitMaskImage: 'linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent)'
       }}
     >
-      {skills.map((item) => (
-        <li
-          key={item}
-          className="border border-orange-400/30 rounded-sm px-2 text-orange-400 whitespace-nowrap lg:text-md"
-        >
-          {item}
-        </li>
-      ))}
+      {children}
     </ul>
   );
 };
+
+CarouselOfItems.Item = CarouselItems;

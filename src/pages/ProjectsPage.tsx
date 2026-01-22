@@ -1,5 +1,4 @@
 import { List } from "../components/List";
-import { Subtitle } from "../components/Subtitle"
 
 const projects = [
 	{
@@ -36,10 +35,9 @@ const projects = [
 export const ProjectsPage = () => {
 	return (
 		<>
-			<Subtitle>Projects</Subtitle>
 			<List>
-				{projects.map((item) => (
-					<List.ProjectCard key={item.id} project={item} />
+				{projects.map((project) => (
+					<List.ProjectCard key={project.id} project={project} />
 				))}
 			</List>
 		</>

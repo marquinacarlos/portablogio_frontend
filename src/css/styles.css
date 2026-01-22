@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-
-
 a.active {
   position: relative;
   color: oklch(90.129% 0.15642 188.25);
@@ -62,5 +60,8 @@ a.active::before {
   .animate-scroll-hint {
     animation: scroll-hint 1.8s ease-in-out 1;
   }
+}
 
+.test {
+  background-color: oklch(90.129% 0.15642 188.25 / 0.061);
 }

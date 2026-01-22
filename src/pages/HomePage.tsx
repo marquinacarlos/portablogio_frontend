@@ -1,135 +1,113 @@
 import { Link } from "react-router";
-import { Subtitle } from "../components/Subtitle";
-import { FileUser, Github, Linkedin, Quote } from 'lucide-react';
-import { WhatsappIcon } from "../components/WhatsappIcon";
+import { FileUser, Github, Linkedin, Mail, Code2 } from 'lucide-react';
 import { Blockquote } from "../components/Blockquote";
 import { ButtonWithIcon } from "../components/ButtonWithIcon";
 
 export const HomePage = () => {
   return (
     <>
-      <Subtitle>Inicio</Subtitle>
-
-
-      <h3 className="text-3xl text-orange-400 font-extrabold uppercase">
-        <span className="">
-          Dev web
-        </span>
-        <br />
-        <span>
-          full stack
-        </span>
-      </h3>
-
-      <div className="flex space-x-4 items-center mt-6">
-        <ButtonWithIcon icon={<FileUser />}>
-          Descargar CV
-        </ButtonWithIcon>
-        <Link 
-          to="#"
-          className="text-cyan-400"
-          >
-            <Github strokeWidth={1} />
-        </Link>
-        <Link 
-          to="#"
-          className="text-cyan-400"
-          >
-          <Linkedin strokeWidth={1} />
-        </Link>
-        <Link to="#" className="text-cyan-400">
-          <WhatsappIcon />
-        </Link>
+      {/* HERO: Título + Propuesta de Valor */}
+      <div className="space-y-4">
+        <h2 className="text-3xl lg:text-5xl text-orange-400 font-extrabold uppercase leading-tight text-balance">
+          Desarrollador
+          <br />
+          <span className="text-cyan-400">Full Stack</span>
+        </h2>
+        
+        <p className="text-lg text-amber-100/80 max-w-xl">
+          Especializado en <span className="text-cyan-400 font-semibold">React</span>, 
+          <span className="text-cyan-400 font-semibold"> Node.js</span> y 
+          <span className="text-cyan-400 font-semibold"> PostgreSQL</span>. 
+          Transformo requisitos en código limpio, escalable y mantenible.
+        </p>
       </div>
 
-      <Blockquote className="mt-6 max-w-md">
+      {/* ENLACES SOCIALES + CV */}
+      <div className="flex flex-wrap gap-4 items-center">
+        <a 
+          href="/path-to-your-cv.pdf" 
+          download="Carlos_Marquina_CV.pdf"
+          className="inline-flex"
+        >
+          <ButtonWithIcon icon={<FileUser />}>
+            Descargar CV
+          </ButtonWithIcon>
+        </a>
+        
+        <div className="flex gap-3 items-center">
+          <a 
+            href="https://github.com/tu-usuario"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-400 hover:text-cyan-300 transition-colors"
+            aria-label="GitHub"
+          >
+            <Github strokeWidth={1} size={28} />
+          </a>
+          <a 
+            href="https://linkedin.com/in/tu-perfil"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-400 hover:text-cyan-300 transition-colors"
+            aria-label="LinkedIn"
+          >
+            <Linkedin strokeWidth={1} size={28} />
+          </a>
+          <a 
+            href="mailto:tu@email.com"
+            className="text-cyan-400 hover:text-cyan-300 transition-colors"
+            aria-label="Email"
+          >
+            <Mail strokeWidth={1} size={28} />
+          </a>
+        </div>
+      </div>
+
+      {/* QUOTE */}
+      <Blockquote className="max-w-xl border-l-4 border-orange-400">
         Ser desarrollador no es tener todas las respuestas, sino saber cómo encontrarlas.
       </Blockquote>
-      
-      {/* <p className="mt-4 max-w-80 text-pretty">
-        Transformo ideas en productos digitales funcionales y escalables.
-      </p> */}
 
-      <div className="mt-4 w-full max-w-80 flex space-x-1 justify-between">
-          <ButtonWithIcon icon={<FileUser />}>
-            Proyectos
+      {/* DESTACADOS TÉCNICOS */}
+      <div className="space-y-3">
+        <h3 className="text-xl font-bold text-amber-50 flex items-center gap-2">
+          <Code2 className="text-orange-400" size={24} />
+          Especializado en
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          {['TypeScript', 'React', 'Node.js', 'Express', 'PostgreSQL', 'REST APIs', 'Git'].map(tech => (
+            <span 
+              key={tech} 
+              className="px-3 py-1 bg-neutral-800/50 border border-neutral-700 rounded-md text-sm text-cyan-400 font-medium"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* CTAs PRINCIPALES */}
+      <div className="flex flex-wrap gap-3">
+        <Link to="/projects">
+          <ButtonWithIcon icon={<Code2 />}>
+            Ver Proyectos
           </ButtonWithIcon>
-          <ButtonWithIcon icon={<FileUser />}>
+        </Link>
+        <Link to="/contact">
+          <ButtonWithIcon icon={<Mail />}>
             Contáctame
           </ButtonWithIcon>
+        </Link>
+      </div>
+
+      {/* OPCIONAL: Mini About */}
+      <div className="max-w-xl space-y-2 pt-4 border-t border-neutral-700/50">
+        <p className="text-amber-100/70 text-sm leading-relaxed">
+          Apasionado por resolver problemas complejos con soluciones simples. 
+          Busco mi primera oportunidad profesional donde pueda aportar mis habilidades técnicas 
+          y seguir creciendo como desarrollador.
+        </p>
       </div>
     </>
-  )
+  );
 }
-
-
-//   return (
-//     <div className="space-y-20">
-      
-//       {/* 1. HERO SECTION (Introducción) */}
-//       <section className="text-center space-y-6 py-10">
-//         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium">
-//           <Code2 size={16} /> Desarrollador Web Junior
-//         </div>
-//         <h1 className="text-5xl font-extrabold text-gray-900 tracking-tight">
-//           Creo experiencias web <br /> 
-//           <span className="text-blue-600">modernas y escalables</span>
-//         </h1>
-//         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-//           Especializado en el stack PERN. Transformo ideas en código limpio y funcional.
-//         </p>
-//         <div className="flex justify-center gap-4">
-//           <a href="#projects" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
-//             Ver Proyectos
-//           </a>
-//           <a href="#contact" className="bg-gray-200 text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition">
-//             Contactar
-//           </a>
-//         </div>
-//       </section>
-
-//       {/* 2. SECTION: SERVICIOS (Desde la BD) */}
-//       <section>
-//         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Mis Servicios</h2>
-        
-//         {services.length === 0 ? (
-//           <p className="text-center text-gray-500">No hay servicios activos por el momento.</p>
-//         ) : (
-//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-//             {services.map(service => (
-//               <ServiceCard key={service.id} service={service} />
-//             ))}
-//           </div>
-//         )}
-//       </section>
-
-//       {/* 3. SECTION: PROYECTOS DESTACADOS (Desde la BD) */}
-//       <section id="projects">
-//         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Proyectos Recientes</h2>
-//         <div className="grid gap-6">
-//             {projects.map(project => (
-//                 <div key={project.id} className="bg-white p-6 rounded-lg border border-gray-200 flex flex-col md:flex-row gap-6">
-//                     {/* Aquí iría la imagen si la tuviéramos */}
-//                     <div className="flex-1">
-//                         <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-//                         <div className="flex gap-2 mb-4">
-//                             {project.tech_stack.map(tech => (
-//                                 <span key={tech} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded uppercase font-bold tracking-wider">
-//                                     {tech}
-//                                 </span>
-//                             ))}
-//                         </div>
-//                         <p className="text-gray-600 mb-4">{project.description}</p>
-//                         <a href="#" className="text-blue-600 font-medium inline-flex items-center gap-1 hover:underline">
-//                             Ver Detalles <ArrowRight size={16} />
-//                         </a>
-//                     </div>
-//                 </div>
-//             ))}
-//             {projects.length === 0 && <p className="text-center text-gray-500">Pronto subiré mis proyectos.</p>}
-//         </div>
-//       </section>
-
-//     </div>
-//   );
-// }
