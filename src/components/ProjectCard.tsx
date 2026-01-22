@@ -32,10 +32,5 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 				Jan 20, 2024
 			</p>
 		</li>
-
-
-	
-		// 	<TechnicalSkillList skills={project.tech_stack} />
-		
 	)
 }
