@@ -12,12 +12,12 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 		<li className="min-w-0 w-full">
 			<Link 
 				to={{ pathname: `/${project.slug}`}} 
-				className="font-extralight text-3xl text-end uppercase text-orange-400 md:text-5xl lg:text-7xl"
+				className="block font-extralight text-3xl text-end uppercase text-orange-400 md:text-5xl lg:text-7xl"
 			>
 				{project.title}
 			</Link>
 			<p 
-				className="w-fit max-w-sm text-sm text-end text-amber-100/70 lg:max-w-md lg:text-lg"
+				className="text-sm text-end text-balance text-amber-100/70 lg:text-lg"
 			>
 				{project.description}
 			</p>

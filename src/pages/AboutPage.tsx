@@ -1,12 +1,162 @@
-import { Subtitle } from "../components/Subtitle"
+import { Code2, GraduationCap, Heart, Target, Rocket, Coffee } from "lucide-react";
+import { Subtitle } from "../components/Subtitle";
+import { Blockquote } from "../components/Blockquote";
+
+const skills = {
+  frontend: ["React", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"],
+  backend: ["Node.js", "Express", "PostgreSQL", "REST APIs"],
+  tools: ["Git", "GitHub", "VS Code", "Vite", "Docker"],
+};
+
+const values = [
+  {
+    icon: <Target className="text-orange-400" size={24} />,
+    title: "Código limpio",
+    description: "Escribo código legible, mantenible y bien documentado.",
+  },
+  {
+    icon: <Rocket className="text-orange-400" size={24} />,
+    title: "Aprendizaje continuo",
+    description: "Siempre estoy explorando nuevas tecnologías y mejores prácticas.",
+  },
+  {
+    icon: <Heart className="text-orange-400" size={24} />,
+    title: "Pasión por resolver problemas",
+    description: "Disfruto transformar desafíos complejos en soluciones elegantes.",
+  },
+];
 
 export const AboutPage = () => {
   return (
     <>
-      <Subtitle>About me</Subtitle>
-      <p className="mt-auto max-w-52 text-pretty self-end">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut corrupti quam ab reiciendis alias, culpa aliquid, ipsa sunt consectetur officia laborum odio iste commodi tenetur, asperiores deserunt possimus quisquam sequi.
-      </p>
+      <Subtitle>Sobre mí</Subtitle>
+
+      {/* Introducción */}
+      <section className="space-y-4">
+        <p className="text-lg text-amber-100/90 leading-relaxed max-w-2xl">
+          ¡Hola! Soy <span className="text-cyan-400 font-semibold">Carlos Marquina</span>,
+          desarrollador Full Stack apasionado por crear experiencias web que combinan
+          funcionalidad con diseño atractivo.
+        </p>
+        <p className="text-amber-100/70 leading-relaxed max-w-2xl">
+          Mi viaje en el desarrollo comenzó con la curiosidad de entender cómo funcionan
+          las aplicaciones que usamos a diario. Esa curiosidad se transformó en una pasión
+          por construir soluciones digitales que realmente impacten.
+        </p>
+      </section>
+
+      {/* Quote */}
+      <Blockquote className="max-w-xl border-l-4 border-orange-400">
+        El mejor código es aquel que no necesitas explicar.
+      </Blockquote>
+
+      {/* Habilidades técnicas */}
+      <section className="space-y-4">
+        <h3 className="text-xl font-bold text-amber-50 flex items-center gap-2">
+          <Code2 className="text-orange-400" size={24} />
+          Habilidades técnicas
+        </h3>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          <div className="space-y-2">
+            <h4 className="text-cyan-400 font-semibold text-sm uppercase tracking-wide">
+              Frontend
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {skills.frontend.map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1 bg-neutral-800/50 border border-neutral-700 rounded-md text-sm text-amber-100/80"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="text-cyan-400 font-semibold text-sm uppercase tracking-wide">
+              Backend
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {skills.backend.map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1 bg-neutral-800/50 border border-neutral-700 rounded-md text-sm text-amber-100/80"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="text-cyan-400 font-semibold text-sm uppercase tracking-wide">
+              Herramientas
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {skills.tools.map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1 bg-neutral-800/50 border border-neutral-700 rounded-md text-sm text-amber-100/80"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Formación */}
+      <section className="space-y-4">
+        <h3 className="text-xl font-bold text-amber-50 flex items-center gap-2">
+          <GraduationCap className="text-orange-400" size={24} />
+          Formación
+        </h3>
+        <div className="space-y-3">
+          <div className="border-l-2 border-cyan-400/50 pl-4">
+            <p className="text-amber-100 font-medium">Desarrollo Web Full Stack</p>
+            <p className="text-amber-100/60 text-sm">Formación autodidacta y cursos especializados</p>
+          </div>
+          <div className="border-l-2 border-cyan-400/50 pl-4">
+            <p className="text-amber-100 font-medium">Práctica constante</p>
+            <p className="text-amber-100/60 text-sm">Proyectos personales y colaborativos</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Valores */}
+      <section className="space-y-4">
+        <h3 className="text-xl font-bold text-amber-50 flex items-center gap-2">
+          <Coffee className="text-orange-400" size={24} />
+          Lo que me define
+        </h3>
+        <div className="grid gap-4 md:grid-cols-3">
+          {values.map((value) => (
+            <div
+              key={value.title}
+              className="p-4 bg-neutral-900/50 border border-neutral-800 rounded-md space-y-2"
+            >
+              <div className="flex items-center gap-2">
+                {value.icon}
+                <h4 className="text-amber-100 font-semibold">{value.title}</h4>
+              </div>
+              <p className="text-amber-100/60 text-sm">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Cierre */}
+      <section className="pt-4 border-t border-neutral-700/50">
+        <p className="text-amber-100/70 text-sm leading-relaxed max-w-2xl">
+          Actualmente busco mi primera oportunidad profesional donde pueda aportar mis
+          habilidades técnicas, aprender de equipos experimentados y seguir creciendo
+          como desarrollador. Si tienes un proyecto interesante o una oportunidad,
+          ¡me encantaría conocerla!
+        </p>
+      </section>
     </>
-  )
-}
+  );
+};

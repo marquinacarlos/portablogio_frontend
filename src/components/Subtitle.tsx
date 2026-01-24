@@ -1,12 +1,20 @@
-import type React from "react"
+import type React from "react";
+import { cn } from "../lib/utils";
 
-export const Subtitle = ({children}: { children: React.ReactNode }) => {
-	return (
-		<h2 className="w-fit text-2xl z-10 lg:text-4xl lg:left-">
-			{children}
-		</h2>
-		// <h2 className="w-fit absolute top-2 left-2 text-2xl z-10 lg:text-4xl lg:left-">
-		// 	{children}
-		// </h2>
-	)
+interface SubtitleProps {
+  children: React.ReactNode;
+  className?: string;
 }
+
+export const Subtitle = ({ children, className }: SubtitleProps) => {
+  return (
+    <h2
+      className={cn(
+        "w-fit text-2xl font-bold text-orange-400 uppercase tracking-wide lg:text-4xl",
+        className
+      )}
+    >
+      {children}
+    </h2>
+  );
+};
