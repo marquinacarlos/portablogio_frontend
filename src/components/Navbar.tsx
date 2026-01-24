@@ -110,7 +110,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
             to={{ pathname: '/login'}} 
             onClick={onClose}
           >
-            Iniciar sesión
+            Admin
           </NavLink>
         </li>
       </ul>
