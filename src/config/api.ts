@@ -1,5 +1,4 @@
-const isLocalNetwork = window.location.hostname !== 'localhost';
-
-export const API_URL = isLocalNetwork
-  ? `http://${window.location.hostname}:3000`
-  : 'http://localhost:3000';
+// URL de la API desde variables de entorno
+// En desarrollo: http://localhost:3000/api/v1
+// En producción: https://portablogio-api.onrender.com/api/v1
+export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api/v1";
