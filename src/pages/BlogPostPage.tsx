@@ -180,7 +180,7 @@ export const BlogPostPage = () => {
       if (!slug) return;
 
       try {
-        const response = await fetch(`${API_URL}/api/v1/posts/${slug}`);
+        const response = await fetch(`${API_URL}/posts/${slug}`);
 
         if (!response.ok) {
           if (response.status === 404) {
