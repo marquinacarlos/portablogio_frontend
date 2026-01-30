@@ -38,16 +38,29 @@
 .dot-red {
   left: -200px;
   bottom: 100px;
-  background: #ed2a24;
+  background: #530514;
   animation: dot-animation-1 20s infinite ease-in-out;
 }
+/* .dot-red {
+  left: -200px;
+  bottom: 100px;
+  background: #ed2a24;
+  animation: dot-animation-1 20s infinite ease-in-out;
+} */
 
 .dot-purple {
   left: -150px;
   bottom: 50px;
-  background: #bd3690;
+  background: #3d36bd;
   animation: dot-animation-2 20s infinite ease-in-out;
 }
+
+/* .dot-purple {
+  left: -150px;
+  bottom: 50px;
+  background: #bd3690;
+  animation: dot-animation-2 20s infinite ease-in-out;
+} */
 
 /* .dot-orange {
   right: -100px;
