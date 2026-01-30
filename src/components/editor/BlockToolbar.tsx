@@ -27,9 +27,9 @@ const blockOptions: { type: BlockType; label: string; icon: React.ReactNode }[] 
  */
 export const BlockToolbar = ({ onAddBlock }: BlockToolbarProps) => {
   return (
-    <div className="flex flex-wrap items-center gap-2 p-3 bg-neutral-900/50 border border-neutral-800 rounded-md">
-      <span className="flex items-center gap-2 text-sm text-amber-100/60 mr-2">
-        <Plus size={16} className="text-cyan-400" />
+    <div className="flex flex-wrap items-center gap-2 p-3 bg-surface/50 border border-border-subtle rounded-md">
+      <span className="flex items-center gap-2 text-sm text-text-muted mr-2">
+        <Plus size={16} className="text-accent" />
         Agregar bloque:
       </span>
 
@@ -38,7 +38,7 @@ export const BlockToolbar = ({ onAddBlock }: BlockToolbarProps) => {
           key={type}
           type="button"
           onClick={() => onAddBlock(type)}
-          className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-amber-100/80 bg-neutral-800/50 border border-neutral-700 rounded hover:border-cyan-400/50 hover:text-cyan-400 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-text-primary/80 bg-surface-hover/50 border border-border rounded hover:border-accent/50 hover:text-accent transition-colors"
         >
           {icon}
           {label}

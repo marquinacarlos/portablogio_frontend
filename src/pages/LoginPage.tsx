@@ -73,7 +73,7 @@ export const LoginPage = () => {
   };
 
   const inputClasses =
-    "w-full px-4 py-3 bg-neutral-900/50 border border-neutral-700 rounded-md text-amber-100 placeholder:text-amber-100/40 focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition-colors";
+    "w-full px-4 py-3 bg-surface/50 border border-border rounded-md text-text-primary placeholder:text-text-placeholder focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors";
 
   // Si está autenticado, mostrar estado de sesión activa
   if (isAuthenticated && user) {
@@ -82,20 +82,20 @@ export const LoginPage = () => {
         <Subtitle>Sesión activa</Subtitle>
 
         <section className="space-y-4">
-          <div className="p-6 bg-neutral-900/50 border border-green-500/30 rounded-md space-y-4">
+          <div className="p-6 bg-surface/50 border border-success/30 rounded-md space-y-4">
             <div className="flex items-center gap-3">
-              <CheckCircle className="text-green-400" size={32} />
+              <CheckCircle className="text-success" size={32} />
               <div>
-                <p className="text-lg font-semibold text-amber-100">
+                <p className="text-lg font-semibold text-text-primary">
                   ¡Bienvenido, {user.username}!
                 </p>
-                <p className="text-amber-100/60 text-sm">
+                <p className="text-text-muted text-sm">
                   Has iniciado sesión correctamente
                 </p>
               </div>
             </div>
 
-            <p className="text-amber-100/70 text-sm">
+            <p className="text-text-secondary text-sm">
               Serás redirigido al panel de administración en unos segundos...
             </p>
 
@@ -107,7 +107,7 @@ export const LoginPage = () => {
               </Link>
               <button
                 onClick={handleLogout}
-                className="px-4 py-2 border border-neutral-600 rounded-md text-amber-100 hover:border-red-400/50 hover:text-red-400 transition-colors"
+                className="px-4 py-2 border border-border rounded-md text-text-primary hover:border-error/50 hover:text-error transition-colors"
               >
                 Cerrar sesión
               </button>
@@ -124,20 +124,20 @@ export const LoginPage = () => {
 
       {/* Introducción */}
       <section className="space-y-2">
-        <p className="text-lg text-amber-100/90 leading-relaxed max-w-xl">
+        <p className="text-lg text-text-primary/90 leading-relaxed max-w-xl">
           Accede a tu cuenta para gestionar el contenido.
         </p>
-        <p className="text-amber-100/70 leading-relaxed max-w-xl">
+        <p className="text-text-secondary leading-relaxed max-w-xl">
           Esta sección está reservada para administradores.
         </p>
       </section>
 
       {/* Formulario */}
       <section className="w-full max-w-md">
-        <div className="p-6 bg-neutral-900/50 border border-neutral-800 rounded-md space-y-6">
+        <div className="p-6 bg-surface/50 border border-border-subtle rounded-md space-y-6">
           <div className="flex items-center gap-2">
-            <LogIn className="text-orange-400" size={24} />
-            <h3 className="text-lg font-semibold text-amber-50">
+            <LogIn className="text-brand" size={24} />
+            <h3 className="text-lg font-semibold text-text-primary">
               Credenciales
             </h3>
           </div>
@@ -147,9 +147,9 @@ export const LoginPage = () => {
             <div className="space-y-2">
               <label
                 htmlFor="email"
-                className="flex items-center gap-2 text-sm text-amber-100/80"
+                className="flex items-center gap-2 text-sm text-text-primary/80"
               >
-                <Mail size={16} className="text-cyan-400" />
+                <Mail size={16} className="text-accent" />
                 Email
               </label>
               <input
@@ -174,9 +174,9 @@ export const LoginPage = () => {
             <div className="space-y-2">
               <label
                 htmlFor="password"
-                className="flex items-center gap-2 text-sm text-amber-100/80"
+                className="flex items-center gap-2 text-sm text-text-primary/80"
               >
-                <Lock size={16} className="text-cyan-400" />
+                <Lock size={16} className="text-accent" />
                 Contraseña
               </label>
               <input
@@ -198,8 +198,8 @@ export const LoginPage = () => {
 
             {/* Error */}
             {error && (
-              <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-md">
-                <p className="text-red-400 text-sm">{error}</p>
+              <div className="p-3 bg-error/10 border border-error/30 rounded-md">
+                <p className="text-error text-sm">{error}</p>
               </div>
             )}
 
@@ -207,7 +207,7 @@ export const LoginPage = () => {
             <ButtonWithIcon
               icon={
                 isSubmitting ? (
-                  <div className="w-4 h-4 border-2 border-neutral-900 border-t-transparent rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-background border-t-transparent rounded-full animate-spin" />
                 ) : (
                   <LogIn size={18} />
                 )
@@ -223,10 +223,10 @@ export const LoginPage = () => {
       </section>
 
       {/* Volver */}
-      <section className="pt-4 border-t border-neutral-700/50">
+      <section className="pt-4 border-t border-border/50">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-amber-100/70 hover:text-cyan-400 transition-colors text-sm"
+          className="inline-flex items-center gap-2 text-text-secondary hover:text-accent transition-colors text-sm"
         >
           <ArrowLeft size={16} />
           Volver al inicio

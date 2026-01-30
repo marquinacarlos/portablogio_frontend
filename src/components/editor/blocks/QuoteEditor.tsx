@@ -23,10 +23,10 @@ export const QuoteEditor = ({ block, onChange }: QuoteEditorProps) => {
   }, [block.data.text]);
 
   return (
-    <div className="relative pl-4 border-l-4 border-orange-400/50">
+    <div className="relative pl-4 border-l-4 border-brand/50">
       {/* Label */}
-      <div className="absolute -left-0.5 -top-0.5 bg-neutral-950 px-1">
-        <Quote size={14} className="text-orange-400" />
+      <div className="absolute -left-0.5 -top-0.5 bg-background px-1">
+        <Quote size={14} className="text-brand" />
       </div>
 
       <textarea
@@ -34,7 +34,7 @@ export const QuoteEditor = ({ block, onChange }: QuoteEditorProps) => {
         value={block.data.text || ""}
         onChange={(e) => onChange({ ...block.data, text: e.target.value })}
         placeholder="Escribe una cita..."
-        className="w-full px-4 py-3 bg-neutral-900/50 border border-neutral-700 rounded-md text-amber-100 italic placeholder:text-amber-100/40 focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition-colors resize-none overflow-hidden"
+        className="w-full px-4 py-3 bg-surface/50 border border-border rounded-md text-text-primary italic placeholder:text-text-placeholder focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors resize-none overflow-hidden"
         rows={2}
       />
     </div>

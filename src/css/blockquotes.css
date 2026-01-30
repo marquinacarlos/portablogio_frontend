@@ -6,7 +6,7 @@
 		text-wrap: pretty;
 		border-left-style: var(--tw-border-style);
 		border-left-width: 2px;
-		border-color: var(--color-cyan-400);
+		border-color: var(--theme-brand);
 		padding-left: calc(var(--spacing) * 6);
 		padding-block: calc(var(--spacing) * 6);
 		background-color: color-mix(in oklab, var(--color-white) /* #fff = #ffffff */ 5%, transparent);

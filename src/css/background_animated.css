@@ -38,7 +38,7 @@
 .dot-red {
   left: -200px;
   bottom: 100px;
-  background: #530514;
+  background: #460311;
   animation: dot-animation-1 20s infinite ease-in-out;
 }
 /* .dot-red {
@@ -51,7 +51,7 @@
 .dot-purple {
   left: -150px;
   bottom: 50px;
-  background: #3d36bd;
+  background: #17126c;
   animation: dot-animation-2 20s infinite ease-in-out;
 }
 
@@ -86,6 +86,12 @@
 }
 
 
+
+/* Modo claro: reducir opacidad para no interferir con la lectura */
+[data-theme="light"] .optimized-dot {
+  opacity: 0.12;
+  filter: blur(80px);
+}
 
 @media screen and (min-width: 768px) {
   .optimized-dot {

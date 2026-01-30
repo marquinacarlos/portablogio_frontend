@@ -10,7 +10,7 @@ interface ButtonWithIconProps {
 
 export const ButtonWithIcon = ({ children, icon, className }: ButtonWithIconProps) => {
 	return(
-		<button className={`flex items-center justify-center whitespace-nowrap py-1 px-3 bg-cyan-400 rounded-md gap-2 ${className ?? ''}`}>
+		<button className={`flex items-center justify-center whitespace-nowrap py-1 px-3 bg-accent text-background rounded-md gap-2 ${className ?? ''}`}>
 			{icon && <span className="shrink-0">{icon}</span>}
 			<span>{children}</span>
 		</button>
@@ -66,7 +66,7 @@ export const DownloadButton = ({
       download={download && !openInNewTab ? download : undefined}
       target={openInNewTab && !download ? '_blank' : undefined}
       onClick={handleClick}
-      className={`flex items-center justify-center whitespace-nowrap py-1 px-3 bg-cyan-400 rounded-md gap-2 ${className ?? ''}`}
+      className={`flex items-center justify-center whitespace-nowrap py-1 px-3 bg-accent text-background rounded-md gap-2 ${className ?? ''}`}
     >
       {icon && <span className="shrink-0">{icon}</span>}
       <span>{children}</span>

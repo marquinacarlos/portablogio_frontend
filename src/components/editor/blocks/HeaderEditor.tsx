@@ -34,7 +34,7 @@ export const HeaderEditor = ({ block, onChange }: HeaderEditorProps) => {
     <div className="space-y-2">
       {/* Selector de nivel */}
       <div className="flex items-center gap-2">
-        <span className="text-xs text-amber-100/50">Nivel:</span>
+        <span className="text-xs text-text-muted">Nivel:</span>
         <div className="flex gap-1">
           {levelOptions.map((option) => (
             <button
@@ -43,8 +43,8 @@ export const HeaderEditor = ({ block, onChange }: HeaderEditorProps) => {
               onClick={() => onChange({ ...block.data, level: option.value })}
               className={`px-2 py-1 text-xs rounded border transition-colors ${
                 level === option.value
-                  ? "bg-cyan-400/20 border-cyan-400/50 text-cyan-400"
-                  : "bg-neutral-800/50 border-neutral-700 text-amber-100/60 hover:border-neutral-600"
+                  ? "bg-accent/20 border-accent/50 text-accent"
+                  : "bg-surface-hover/50 border-border text-text-secondary hover:border-border"
               }`}
             >
               {option.label}
@@ -59,7 +59,7 @@ export const HeaderEditor = ({ block, onChange }: HeaderEditorProps) => {
         value={block.data.text || ""}
         onChange={(e) => onChange({ ...block.data, text: e.target.value })}
         placeholder="Escribe un titulo..."
-        className={`w-full px-4 py-3 bg-neutral-900/50 border border-neutral-700 rounded-md text-amber-100 font-bold placeholder:text-amber-100/40 focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition-colors ${textSizeClasses[level]}`}
+        className={`w-full px-4 py-3 bg-surface/50 border border-border rounded-md text-text-primary font-bold placeholder:text-text-placeholder focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors ${textSizeClasses[level]}`}
       />
     </div>
   );

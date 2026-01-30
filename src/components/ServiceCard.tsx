@@ -7,23 +7,23 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <li className="min-w-0 w-full flex flex-col border border-orange-500/30 rounded-md p-4 bg-neutral-900/30 hover:bg-neutral-900/50 transition-colors">
+    <li className="min-w-0 w-full flex flex-col border border-brand/30 rounded-md p-4 bg-surface/30 hover:bg-surface/50 transition-colors">
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
         <div className="space-y-1">
-          <h3 className="font-semibold text-xl text-orange-400 md:text-2xl">
+          <h3 className="font-semibold text-xl text-brand md:text-2xl">
             {service.title}
           </h3>
           {service.description && (
-            <p className="text-sm text-amber-100/70 max-w-md">
+            <p className="text-sm text-text-secondary max-w-md">
               {service.description}
             </p>
           )}
         </div>
         <div className="flex items-baseline gap-1 shrink-0">
-          <span className="text-2xl font-bold text-cyan-400">
+          <span className="text-2xl font-bold text-accent">
             {service.price}€
           </span>
-          <span className="text-amber-100/50 text-sm">desde</span>
+          <span className="text-text-muted text-sm">desde</span>
         </div>
       </div>
 
@@ -32,9 +32,9 @@ export function ServiceCard({ service }: ServiceCardProps) {
           {service.features.map((feature, index) => (
             <li
               key={index}
-              className="flex items-center gap-2 text-sm text-amber-100/80"
+              className="flex items-center gap-2 text-sm text-text-primary/80"
             >
-              <Check className="text-cyan-400 shrink-0" size={16} />
+              <Check className="text-accent shrink-0" size={16} />
               <span>{feature}</span>
             </li>
           ))}

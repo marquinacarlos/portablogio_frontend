@@ -7,7 +7,7 @@ interface VideoEditorProps {
 }
 
 const inputClasses =
-  "w-full px-4 py-3 bg-neutral-900/50 border border-neutral-700 rounded-md text-amber-100 placeholder:text-amber-100/40 focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition-colors";
+  "w-full px-4 py-3 bg-surface/50 border border-border rounded-md text-text-primary placeholder:text-text-placeholder focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors";
 
 /**
  * Extrae el ID de video de una URL de YouTube
@@ -34,10 +34,10 @@ export const VideoEditor = ({ block, onChange }: VideoEditorProps) => {
   const youtubeId = url ? getYouTubeId(url) : null;
 
   return (
-    <div className="space-y-3 p-4 bg-neutral-900/30 border border-neutral-800 rounded-md">
+    <div className="space-y-3 p-4 bg-surface/30 border border-border-subtle rounded-md">
       {/* Label */}
-      <div className="flex items-center gap-2 text-sm text-amber-100/60">
-        <Video size={16} className="text-cyan-400" />
+      <div className="flex items-center gap-2 text-sm text-text-secondary">
+        <Video size={16} className="text-accent" />
         Video (YouTube)
       </div>
 
@@ -52,7 +52,7 @@ export const VideoEditor = ({ block, onChange }: VideoEditorProps) => {
 
       {/* Preview */}
       {youtubeId && (
-        <div className="relative aspect-video max-w-md overflow-hidden rounded border border-neutral-700 bg-neutral-800">
+        <div className="relative aspect-video max-w-md overflow-hidden rounded border border-border bg-surface-hover">
           <iframe
             src={`https://www.youtube.com/embed/${youtubeId}`}
             title="Video preview"
@@ -64,7 +64,7 @@ export const VideoEditor = ({ block, onChange }: VideoEditorProps) => {
       )}
 
       {url && !youtubeId && (
-        <div className="p-4 bg-amber-400/10 border border-amber-400/30 rounded text-sm text-amber-400">
+        <div className="p-4 bg-warning/10 border border-warning/30 rounded text-sm text-warning">
           Solo se soportan videos de YouTube. Asegurate de usar una URL valida.
         </div>
       )}

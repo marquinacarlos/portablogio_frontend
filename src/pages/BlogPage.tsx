@@ -46,10 +46,10 @@ export const BlogPage = () => {
 
       {/* Introducción */}
       <section className="space-y-2">
-        <p className="text-lg text-amber-100/90 leading-relaxed max-w-2xl">
+        <p className="text-lg text-text-primary/90 leading-relaxed max-w-2xl">
           Artículos sobre desarrollo web, tecnología y aprendizajes.
         </p>
-        <p className="text-amber-100/70 leading-relaxed max-w-2xl">
+        <p className="text-text-secondary leading-relaxed max-w-2xl">
           Comparto experiencias, tutoriales y reflexiones sobre el mundo del
           desarrollo de software.
         </p>
@@ -57,19 +57,19 @@ export const BlogPage = () => {
 
       {/* Estado de carga */}
       {isLoading && (
-        <div className="flex items-center gap-3 text-amber-100/70">
-          <div className="w-5 h-5 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+        <div className="flex items-center gap-3 text-text-secondary">
+          <div className="w-5 h-5 border-2 border-accent border-t-transparent rounded-full animate-spin" />
           <span>Cargando artículos...</span>
         </div>
       )}
 
       {/* Estado de error */}
       {error && (
-        <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-md">
-          <p className="text-red-400">Error: {error}</p>
+        <div className="p-4 bg-error/10 border border-error/30 rounded-md">
+          <p className="text-error">Error: {error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="mt-2 text-sm text-cyan-400 hover:text-cyan-300 underline"
+            className="mt-2 text-sm text-accent hover:text-accent-hover underline"
           >
             Intentar de nuevo
           </button>
@@ -79,8 +79,8 @@ export const BlogPage = () => {
       {/* Lista de posts */}
       {!isLoading && !error && posts.length > 0 && (
         <section className="space-y-4">
-          <h3 className="text-xl font-bold text-amber-50 flex items-center gap-2">
-            <BookOpen className="text-orange-400" size={24} />
+          <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
+            <BookOpen className="text-brand" size={24} />
             Artículos recientes
           </h3>
 
@@ -88,12 +88,12 @@ export const BlogPage = () => {
             {posts.map((post) => (
               <li
                 key={post.id}
-                className="group p-4 bg-neutral-900/50 border border-neutral-800 rounded-md hover:border-orange-400/30 transition-colors"
+                className="group p-4 bg-surface/50 border border-border-subtle rounded-md hover:border-brand/30 transition-colors"
               >
                 <Link to={`/blog/${post.slug}`} className="block space-y-3">
                   {/* Imagen de portada */}
                   {post.cover_image_url && (
-                    <div className="aspect-video overflow-hidden rounded-md bg-neutral-800">
+                    <div className="aspect-video overflow-hidden rounded-md bg-surface-hover">
                       <img
                         src={post.cover_image_url}
                         alt={post.title}
@@ -105,12 +105,12 @@ export const BlogPage = () => {
 
                   {/* Contenido */}
                   <div className="space-y-2">
-                    <h4 className="text-lg font-semibold text-orange-400 group-hover:text-orange-300 transition-colors">
+                    <h4 className="text-lg font-semibold text-brand group-hover:text-brand-hover transition-colors">
                       {post.title}
                     </h4>
 
                     {post.excerpt && (
-                      <p className="text-amber-100/70 text-sm line-clamp-2">
+                      <p className="text-text-secondary text-sm line-clamp-2">
                         {post.excerpt}
                       </p>
                     )}
@@ -118,13 +118,13 @@ export const BlogPage = () => {
                     <div className="flex items-center justify-between">
                       <time
                         dateTime={post.created_at}
-                        className="flex items-center gap-1.5 text-amber-100/50 text-xs"
+                        className="flex items-center gap-1.5 text-text-muted text-xs"
                       >
                         <Calendar size={14} />
                         {formatDate(post.created_at)}
                       </time>
 
-                      <span className="flex items-center gap-1 text-cyan-400 text-sm group-hover:gap-2 transition-all">
+                      <span className="flex items-center gap-1 text-accent text-sm group-hover:gap-2 transition-all">
                         Leer más
                         <ArrowRight size={16} />
                       </span>
@@ -139,12 +139,12 @@ export const BlogPage = () => {
 
       {/* Sin posts */}
       {!isLoading && !error && posts.length === 0 && (
-        <div className="p-6 bg-neutral-900/50 border border-neutral-800 rounded-md text-center">
-          <BookOpen className="mx-auto text-amber-100/30 mb-3" size={48} />
-          <p className="text-amber-100/70">
+        <div className="p-6 bg-surface/50 border border-border-subtle rounded-md text-center">
+          <BookOpen className="mx-auto text-text-muted/50 mb-3" size={48} />
+          <p className="text-text-secondary">
             Aún no hay artículos publicados.
           </p>
-          <p className="text-amber-100/50 text-sm mt-1">
+          <p className="text-text-muted text-sm mt-1">
             ¡Vuelve pronto para ver nuevo contenido!
           </p>
         </div>
@@ -156,8 +156,8 @@ export const BlogPage = () => {
       </Blockquote>
 
       {/* Cierre */}
-      <section className="pt-4 border-t border-neutral-700/50">
-        <p className="text-amber-100/70 text-sm leading-relaxed max-w-2xl">
+      <section className="pt-4 border-t border-border/50">
+        <p className="text-text-secondary text-sm leading-relaxed max-w-2xl">
           ¿Tienes algún tema que te gustaría que escribiera? Contáctame y
           cuéntame tus ideas.
         </p>

@@ -10,7 +10,7 @@ const CarouselItems = ({ item }: CarouselItemProps) => {
   return (
     <li
       key={item}
-      className="shrink-0 inline-block w-fit px-3 py-1 bg-neutral-800/50 border border-neutral-700 rounded-md text-sm text-cyan-400 font-medium whitespace-nowrap"
+      className="shrink-0 inline-block w-fit px-3 py-1 bg-surface-hover/50 border border-border rounded-md text-sm text-accent font-medium whitespace-nowrap"
     >
       {item}
     </li>

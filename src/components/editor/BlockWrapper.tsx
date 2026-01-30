@@ -31,7 +31,7 @@ export const BlockWrapper = ({
           type="button"
           onClick={onMoveUp}
           disabled={isFirst}
-          className="p-1.5 text-amber-100/40 hover:text-cyan-400 hover:bg-cyan-400/10 rounded disabled:opacity-20 disabled:cursor-not-allowed transition-colors"
+          className="p-1.5 text-text-muted hover:text-accent hover:bg-accent/10 rounded disabled:opacity-20 disabled:cursor-not-allowed transition-colors"
           title="Mover arriba"
         >
           <ChevronUp size={16} />
@@ -41,7 +41,7 @@ export const BlockWrapper = ({
           type="button"
           onClick={onMoveDown}
           disabled={isLast}
-          className="p-1.5 text-amber-100/40 hover:text-cyan-400 hover:bg-cyan-400/10 rounded disabled:opacity-20 disabled:cursor-not-allowed transition-colors"
+          className="p-1.5 text-text-muted hover:text-accent hover:bg-accent/10 rounded disabled:opacity-20 disabled:cursor-not-allowed transition-colors"
           title="Mover abajo"
         >
           <ChevronDown size={16} />
@@ -50,7 +50,7 @@ export const BlockWrapper = ({
         <button
           type="button"
           onClick={onDelete}
-          className="p-1.5 text-red-400/60 hover:text-red-400 hover:bg-red-400/10 rounded transition-colors"
+          className="p-1.5 text-error/60 hover:text-error hover:bg-error/10 rounded transition-colors"
           title="Eliminar bloque"
         >
           <Trash2 size={16} />

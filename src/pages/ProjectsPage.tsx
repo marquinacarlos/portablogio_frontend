@@ -45,10 +45,10 @@ export const ProjectsPage = () => {
 
       {/* Introducción */}
       <section className="space-y-2">
-        <p className="text-lg text-amber-100/90 leading-relaxed max-w-2xl">
+        <p className="text-lg text-text-primary/90 leading-relaxed max-w-2xl">
           Una selección de proyectos en los que he trabajado.
         </p>
-        <p className="text-amber-100/70 leading-relaxed max-w-2xl">
+        <p className="text-text-secondary leading-relaxed max-w-2xl">
           Cada proyecto representa un desafío único donde apliqué diferentes
           tecnologías y patrones de desarrollo.
         </p>
@@ -56,21 +56,21 @@ export const ProjectsPage = () => {
 
       {/* Stats */}
       <section className="flex flex-wrap gap-4">
-        <div className="flex items-center gap-2 px-4 py-2 bg-neutral-900/50 border border-neutral-800 rounded-md">
-          <Code2 className="text-orange-400" size={20} />
-          <span className="text-amber-100 font-semibold">{projects.length}</span>
-          <span className="text-amber-100/60 text-sm">proyectos</span>
+        <div className="flex items-center gap-2 px-4 py-2 bg-surface/50 border border-border-subtle rounded-md">
+          <Code2 className="text-brand" size={20} />
+          <span className="text-text-primary font-semibold">{projects.length}</span>
+          <span className="text-text-muted text-sm">proyectos</span>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2 bg-neutral-900/50 border border-neutral-800 rounded-md">
-          <ExternalLink className="text-cyan-400" size={20} />
-          <span className="text-amber-100/60 text-sm">Click en el título para ver más</span>
+        <div className="flex items-center gap-2 px-4 py-2 bg-surface/50 border border-border-subtle rounded-md">
+          <ExternalLink className="text-accent" size={20} />
+          <span className="text-text-muted text-sm">Click en el título para ver más</span>
         </div>
       </section>
 
       {/* Lista de proyectos */}
       <section className="space-y-4">
-        <h3 className="text-xl font-bold text-amber-50 flex items-center gap-2">
-          <Code2 className="text-orange-400" size={24} />
+        <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
+          <Code2 className="text-brand" size={24} />
           Mis proyectos
         </h3>
         <List>
@@ -86,8 +86,8 @@ export const ProjectsPage = () => {
       </Blockquote>
 
       {/* Cierre */}
-      <section className="pt-4 border-t border-neutral-700/50">
-        <p className="text-amber-100/70 text-sm leading-relaxed max-w-2xl">
+      <section className="pt-4 border-t border-border/50">
+        <p className="text-text-secondary text-sm leading-relaxed max-w-2xl">
           ¿Te gustaría ver más proyectos o conocer los detalles técnicos?
           Contáctame y con gusto te cuento más sobre mi trabajo.
         </p>

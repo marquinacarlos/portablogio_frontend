@@ -1,0 +1,101 @@
+/* ===========================================
+   Sistema de Temas - Tailwind CSS v4
+   =========================================== */
+
+/* Variables base del tema (valores por defecto = tema oscuro) */
+:root {
+  /* Brand Colors - Cyan scale para modo oscuro */
+  --theme-brand: var(--color-cyan-400);
+  --theme-brand-hover: var(--color-cyan-300);
+  --theme-accent: var(--color-cyan-500);
+  --theme-accent-hover: var(--color-cyan-400);
+
+  /* Surface Colors */
+  --theme-background: var(--color-neutral-950);
+  --theme-surface: var(--color-neutral-900);
+  --theme-surface-hover: var(--color-neutral-800);
+
+  /* Text Colors - Neutral para mejor legibilidad */
+  --theme-text-primary: var(--color-neutral-100);
+  --theme-text-secondary: var(--color-neutral-300);
+  --theme-text-muted: var(--color-neutral-400);
+  --theme-text-placeholder: var(--color-neutral-500);
+
+  /* Border Colors */
+  --theme-border: var(--color-neutral-700);
+  --theme-border-subtle: var(--color-neutral-800);
+
+  /* Feedback Colors */
+  --theme-success: var(--color-green-400);
+  --theme-error: var(--color-red-400);
+  --theme-warning: var(--color-amber-400);
+}
+
+/* Tema Claro - Blanco y negro clásico */
+[data-theme="light"] {
+  /* Brand Colors - Negro/gris oscuro para modo claro */
+  --theme-brand: var(--color-neutral-900);
+  --theme-brand-hover: var(--color-neutral-700);
+  --theme-accent: var(--color-neutral-600);
+  --theme-accent-hover: var(--color-neutral-800);
+
+  /* Surface Colors - Blancos */
+  --theme-background: var(--color-white);
+  --theme-surface: var(--color-neutral-50);
+  --theme-surface-hover: var(--color-neutral-100);
+
+  /* Text Colors - Escala de grises oscuros */
+  --theme-text-primary: var(--color-neutral-900);
+  --theme-text-secondary: var(--color-neutral-600);
+  --theme-text-muted: var(--color-neutral-500);
+  --theme-text-placeholder: var(--color-neutral-400);
+
+  /* Border Colors - Grises suaves */
+  --theme-border: var(--color-neutral-300);
+  --theme-border-subtle: var(--color-neutral-200);
+
+  /* Feedback Colors - Más oscuros para contraste */
+  --theme-success: var(--color-green-600);
+  --theme-error: var(--color-red-600);
+  --theme-warning: var(--color-amber-600);
+}
+
+/* Definir colores semánticos en Tailwind v4 */
+@theme {
+  /* Brand */
+  --color-brand: var(--theme-brand);
+  --color-brand-hover: var(--theme-brand-hover);
+  --color-accent: var(--theme-accent);
+  --color-accent-hover: var(--theme-accent-hover);
+
+  /* Surfaces */
+  --color-background: var(--theme-background);
+  --color-surface: var(--theme-surface);
+  --color-surface-hover: var(--theme-surface-hover);
+
+  /* Text */
+  --color-text-primary: var(--theme-text-primary);
+  --color-text-secondary: var(--theme-text-secondary);
+  --color-text-muted: var(--theme-text-muted);
+  --color-text-placeholder: var(--theme-text-placeholder);
+
+  /* Borders */
+  --color-border: var(--theme-border);
+  --color-border-subtle: var(--theme-border-subtle);
+
+  /* Feedback */
+  --color-success: var(--theme-success);
+  --color-error: var(--theme-error);
+  --color-warning: var(--theme-warning);
+}
+
+/* Transición suave para cambio de tema */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Aplicar fondo del tema al body */
+body {
+  background-color: var(--theme-background);
+  color: var(--theme-text-primary);
+}

@@ -6,8 +6,8 @@ export const Layout = () => {
   return (
     <>
       <BackgroundAnimated />
-      <div className="h-dvh text-amber-50 grid grid-rows-[1fr] relative overflow-hidden">
-        <div className='grid grid-rows-[auto_1fr] border border-neutral-600 rounded-sm m-4 p-1 overflow-hidden'>
+      <div className="h-dvh text-text-primary grid grid-rows-[1fr] relative overflow-hidden">
+        <div className='grid grid-rows-[auto_1fr] border border-border rounded-sm m-4 p-1 overflow-hidden'>
           <Navbar />
           <h1 className='sr-only'>Carlos Marquina</h1>
 
