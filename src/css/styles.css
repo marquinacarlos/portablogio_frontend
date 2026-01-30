@@ -32,7 +32,7 @@ a.active::before {
 @layer utilities {
   .scrollbar-custom {
     scrollbar-width: thin;
-    scrollbar-color: var(--color-neutral-700) var(--color-neutral-900);
+    scrollbar-color: var(--theme-border) var(--theme-surface);
   }
   .no-scrollbar {
     scrollbar-width: none;        /* Firefox */
