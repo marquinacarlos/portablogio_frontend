@@ -52,19 +52,19 @@ export const HomePage = () => {
       {/* Hero */}
       <section className="space-y-4">
         <div className="space-y-2">
-          <p className="text-cyan-400 font-medium tracking-wide">¡Hola! Soy Carlos Marquina</p>
-          <h2 className="text-3xl lg:text-5xl text-orange-400 font-extrabold uppercase leading-tight">
+          <p className="text-accent font-medium tracking-wide">¡Hola! Soy Carlos Marquina</p>
+          <h2 className="text-3xl lg:text-5xl text-brand font-extrabold uppercase leading-tight">
             Desarrollador
             <br />
-            <span className="text-cyan-400">Full Stack</span>
+            <span className="text-accent">Full Stack</span>
           </h2>
         </div>
 
-        <p className="text-lg text-amber-100/90 leading-relaxed max-w-xl">
+        <p className="text-lg text-text-primary/90 leading-relaxed max-w-xl">
           Especializado en{" "}
-          <span className="text-cyan-400 font-semibold">React</span>,{" "}
-          <span className="text-cyan-400 font-semibold">Node.js</span> y{" "}
-          <span className="text-cyan-400 font-semibold">PostgreSQL</span>.
+          <span className="text-accent font-semibold">React</span>,{" "}
+          <span className="text-accent font-semibold">Node.js</span> y{" "}
+          <span className="text-accent font-semibold">PostgreSQL</span>.
           Transformo ideas en aplicaciones web funcionales, escalables y con código limpio.
         </p>
       </section>
@@ -86,7 +86,7 @@ export const HomePage = () => {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-cyan-400 hover:text-cyan-300 transition-colors"
+              className="text-accent hover:text-accent-hover transition-colors"
               aria-label={social.label}
             >
               {social.icon}
@@ -96,21 +96,21 @@ export const HomePage = () => {
       </section>
 
       {/* Quote */}
-      <Blockquote className="max-w-xl border-l-4 border-orange-400">
+      <Blockquote className="max-w-xl border-l-4 border-brand">
         Ser desarrollador no es tener todas las respuestas, sino saber cómo encontrarlas.
       </Blockquote>
 
       {/* Stack técnico */}
       <section className="space-y-4">
-        <h3 className="text-xl font-bold text-amber-50 flex items-center gap-2">
-          <Code2 className="text-orange-400" size={24} />
+        <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
+          <Code2 className="text-brand" size={24} />
           Stack tecnológico
         </h3>
         <div className="flex flex-wrap gap-2">
           {technologies.map((tech) => (
             <span
               key={tech.name}
-              className="px-3 py-1.5 bg-neutral-900/50 border border-neutral-700 rounded-md text-sm text-cyan-400 font-medium hover:border-cyan-400/50 transition-colors"
+              className="px-3 py-1.5 bg-surface/50 border border-border rounded-md text-sm text-accent font-medium hover:border-accent/50 transition-colors"
             >
               {tech.name}
             </span>
@@ -120,18 +120,18 @@ export const HomePage = () => {
 
       {/* Highlights */}
       <section className="space-y-4">
-        <h3 className="text-xl font-bold text-amber-50 flex items-center gap-2">
-          <Briefcase className="text-orange-400" size={24} />
+        <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
+          <Briefcase className="text-brand" size={24} />
           Lo que ofrezco
         </h3>
         <div className="grid gap-3 sm:grid-cols-3">
           {highlights.map((item) => (
             <div
               key={item.title}
-              className="p-4 bg-neutral-900/50 border border-neutral-800 rounded-md hover:border-orange-400/30 transition-colors"
+              className="p-4 bg-surface/50 border border-border-subtle rounded-md hover:border-brand/30 transition-colors"
             >
-              <h4 className="text-amber-100 font-semibold">{item.title}</h4>
-              <p className="text-amber-100/60 text-sm mt-1">{item.description}</p>
+              <h4 className="text-text-primary font-semibold">{item.title}</h4>
+              <p className="text-text-muted text-sm mt-1">{item.description}</p>
             </div>
           ))}
         </div>
@@ -139,7 +139,7 @@ export const HomePage = () => {
 
       {/* CTAs */}
       <section className="space-y-4">
-        <h3 className="text-xl font-bold text-amber-50">
+        <h3 className="text-xl font-bold text-text-primary">
           ¿Listo para comenzar?
         </h3>
         <div className="flex flex-wrap gap-3">
@@ -162,8 +162,8 @@ export const HomePage = () => {
       </section>
 
       {/* Cierre */}
-      <section className="pt-4 border-t border-neutral-700/50">
-        <p className="text-amber-100/70 text-sm leading-relaxed max-w-2xl">
+      <section className="pt-4 border-t border-border/50">
+        <p className="text-text-secondary text-sm leading-relaxed max-w-2xl">
           Apasionado por resolver problemas complejos con soluciones simples.
           Busco oportunidades donde pueda aportar mis habilidades técnicas,
           colaborar con equipos talentosos y seguir creciendo como desarrollador.

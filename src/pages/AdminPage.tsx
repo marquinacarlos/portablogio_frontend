@@ -26,17 +26,17 @@ const statusConfig: Record<PostStatus, { label: string; icon: React.ReactNode; c
   published: {
     label: "Publicado",
     icon: <CheckCircle size={14} />,
-    color: "text-green-400 bg-green-400/10 border-green-400/30",
+    color: "text-success bg-success/10 border-success/30",
   },
   draft: {
     label: "Borrador",
     icon: <Clock size={14} />,
-    color: "text-amber-400 bg-amber-400/10 border-amber-400/30",
+    color: "text-warning bg-warning/10 border-warning/30",
   },
   archived: {
     label: "Archivado",
     icon: <Archive size={14} />,
-    color: "text-neutral-400 bg-neutral-400/10 border-neutral-400/30",
+    color: "text-text-muted bg-text-muted/10 border-text-muted/30",
   },
 };
 
@@ -113,20 +113,20 @@ export const AdminPage = () => {
       {/* Header con info de usuario */}
       <section className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-cyan-400/20 rounded-full flex items-center justify-center">
-            <LayoutDashboard className="text-cyan-400" size={20} />
+          <div className="w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center">
+            <LayoutDashboard className="text-accent" size={20} />
           </div>
           <div>
-            <p className="text-amber-100 font-medium">
+            <p className="text-text-primary font-medium">
               Bienvenido, {user?.username}
             </p>
-            <p className="text-amber-100/50 text-sm">Administrador</p>
+            <p className="text-text-muted text-sm">Administrador</p>
           </div>
         </div>
 
         <button
           onClick={logout}
-          className="flex items-center gap-2 px-3 py-2 text-sm text-amber-100/70 hover:text-red-400 transition-colors"
+          className="flex items-center gap-2 px-3 py-2 text-sm text-text-secondary hover:text-error transition-colors"
         >
           <LogOut size={16} />
           Cerrar sesión
@@ -135,8 +135,8 @@ export const AdminPage = () => {
 
       {/* Acciones rápidas */}
       <section className="space-y-4">
-        <h3 className="text-xl font-bold text-amber-50 flex items-center gap-2">
-          <Plus className="text-orange-400" size={24} />
+        <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
+          <Plus className="text-brand" size={24} />
           Acciones rápidas
         </h3>
 
@@ -151,11 +151,11 @@ export const AdminPage = () => {
 
       {/* Lista de posts */}
       <section className="space-y-4">
-        <h3 className="text-xl font-bold text-amber-50 flex items-center gap-2">
-          <FileText className="text-orange-400" size={24} />
+        <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
+          <FileText className="text-brand" size={24} />
           Mis articulos
           {posts.length > 0 && (
-            <span className="text-sm font-normal text-amber-100/50">
+            <span className="text-sm font-normal text-text-muted">
               ({posts.length})
             </span>
           )}
@@ -170,7 +170,7 @@ export const AdminPage = () => {
               WebkitMaskImage: 'linear-gradient(to right, black calc(100% - 16px), transparent)'
             }}
           >
-            <Filter size={16} className="text-amber-100/50 shrink-0" />
+            <Filter size={16} className="text-text-muted shrink-0" />
             <div className="flex gap-1">
               {filterOptions.map((option) => (
                 <button
@@ -178,8 +178,8 @@ export const AdminPage = () => {
                   onClick={() => setFilter(option.value)}
                   className={`px-3 py-1 text-xs rounded-full border transition-colors whitespace-nowrap shrink-0 ${
                     filter === option.value
-                      ? "bg-cyan-400/20 border-cyan-400/50 text-cyan-400"
-                      : "bg-neutral-800/50 border-neutral-700 text-amber-100/60 hover:border-neutral-600"
+                      ? "bg-accent/20 border-accent/50 text-accent"
+                      : "bg-surface-hover/50 border-border text-text-muted hover:border-border"
                   }`}
                 >
                   {option.label}
@@ -194,25 +194,25 @@ export const AdminPage = () => {
 
         {/* Loading */}
         {isLoading && (
-          <div className="flex items-center gap-3 text-amber-100/70">
-            <div className="w-5 h-5 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+          <div className="flex items-center gap-3 text-text-secondary">
+            <div className="w-5 h-5 border-2 border-accent border-t-transparent rounded-full animate-spin" />
             <span>Cargando articulos...</span>
           </div>
         )}
 
         {/* Error */}
         {error && (
-          <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-md">
-            <p className="text-red-400">{error}</p>
+          <div className="p-4 bg-error/10 border border-error/30 rounded-md">
+            <p className="text-error">{error}</p>
           </div>
         )}
 
         {/* Lista vacia */}
         {!isLoading && !error && posts.length === 0 && (
-          <div className="p-6 bg-neutral-900/50 border border-neutral-800 rounded-md text-center">
-            <FileText className="mx-auto text-amber-100/30 mb-3" size={48} />
-            <p className="text-amber-100/70">No hay articulos todavia.</p>
-            <p className="text-amber-100/50 text-sm mt-1">
+          <div className="p-6 bg-surface/50 border border-border-subtle rounded-md text-center">
+            <FileText className="mx-auto text-text-muted mb-3" size={48} />
+            <p className="text-text-secondary">No hay articulos todavia.</p>
+            <p className="text-text-muted text-sm mt-1">
               Crea tu primer articulo
             </p>
             <Link to="/admin/posts/new" className="inline-block mt-4">
@@ -225,8 +225,8 @@ export const AdminPage = () => {
 
         {/* Lista filtrada vacia */}
         {!isLoading && !error && posts.length > 0 && filteredPosts.length === 0 && (
-          <div className="p-6 bg-neutral-900/50 border border-neutral-800 rounded-md text-center">
-            <p className="text-amber-100/70">No hay articulos con este estado.</p>
+          <div className="p-6 bg-surface/50 border border-border-subtle rounded-md text-center">
+            <p className="text-text-secondary">No hay articulos con este estado.</p>
           </div>
         )}
 
@@ -238,13 +238,13 @@ export const AdminPage = () => {
               return (
                 <li
                   key={post.id}
-                  className="p-4 bg-neutral-900/50 border border-neutral-800 rounded-md hover:border-neutral-700 transition-colors"
+                  className="p-4 bg-surface/50 border border-border-subtle rounded-md hover:border-border transition-colors"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3">
                     {/* Info del post */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <h4 className="text-amber-100 font-medium truncate">
+                        <h4 className="text-text-primary font-medium truncate">
                           {post.title}
                         </h4>
                         <span
@@ -254,7 +254,7 @@ export const AdminPage = () => {
                           {status.label}
                         </span>
                       </div>
-                      <div className="flex items-center gap-3 text-xs text-amber-100/50">
+                      <div className="flex items-center gap-3 text-xs text-text-muted">
                         <span className="flex items-center gap-1">
                           <Calendar size={12} />
                           {formatDate(post.created_at)}
@@ -267,21 +267,21 @@ export const AdminPage = () => {
                     <div className="flex items-center gap-2 shrink-0">
                       <Link
                         to={`/blog/${post.slug}`}
-                        className="p-2 text-amber-100/50 hover:text-cyan-400 transition-colors"
+                        className="p-2 text-text-muted hover:text-accent transition-colors"
                         title="Ver"
                       >
                         <Eye size={18} />
                       </Link>
                       <Link
                         to={`/admin/posts/${post.slug}/edit`}
-                        className="p-2 text-amber-100/50 hover:text-orange-400 transition-colors"
+                        className="p-2 text-text-muted hover:text-brand transition-colors"
                         title="Editar"
                       >
                         <Edit size={18} />
                       </Link>
                       <button
                         onClick={() => handleDelete(post.slug)}
-                        className="p-2 text-amber-100/50 hover:text-red-400 transition-colors"
+                        className="p-2 text-text-muted hover:text-error transition-colors"
                         title="Eliminar"
                       >
                         <Trash2 size={18} />
@@ -296,8 +296,8 @@ export const AdminPage = () => {
       </section>
 
       {/* Info */}
-      <section className="pt-4 border-t border-neutral-700/50">
-        <p className="text-amber-100/50 text-sm">
+      <section className="pt-4 border-t border-border/50">
+        <p className="text-text-muted text-sm">
           Panel de administración del blog. Aquí puedes gestionar todos tus
           artículos.
         </p>

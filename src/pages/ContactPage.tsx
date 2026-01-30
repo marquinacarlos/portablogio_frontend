@@ -7,13 +7,13 @@ import { contactService, type ContactFormData } from "../services/contactService
 
 const contactInfo = [
   {
-    icon: <Mail className="text-cyan-400" size={20} />,
+    icon: <Mail className="text-accent" size={20} />,
     label: "Email",
     value: "carlosscripto@gmail.com",
     href: "mailto:carlosscripto@gmail.com",
   },
   {
-    icon: <MapPin className="text-cyan-400" size={20} />,
+    icon: <MapPin className="text-accent" size={20} />,
     label: "Ubicación",
     value: "España",
     href: null,
@@ -72,7 +72,7 @@ export const ContactPage = () => {
   };
 
   const inputClasses =
-    "w-full px-4 py-3 bg-neutral-900/50 border border-neutral-700 rounded-md text-amber-100 placeholder:text-amber-100/40 focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition-colors";
+    "w-full px-4 py-3 bg-surface/50 border border-border rounded-md text-text-primary placeholder:text-text-placeholder focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors";
 
   return (
     <>
@@ -80,10 +80,10 @@ export const ContactPage = () => {
 
       {/* Introducción */}
       <section className="space-y-2">
-        <p className="text-lg text-amber-100/90 leading-relaxed max-w-2xl">
+        <p className="text-lg text-text-primary/90 leading-relaxed max-w-2xl">
           ¿Tienes un proyecto en mente o una oportunidad laboral?
         </p>
-        <p className="text-amber-100/70 leading-relaxed max-w-2xl">
+        <p className="text-text-secondary leading-relaxed max-w-2xl">
           Me encantaría escucharte. Completa el formulario o contáctame directamente
           a través de cualquiera de los canales disponibles.
         </p>
@@ -92,15 +92,15 @@ export const ContactPage = () => {
       <div className="grid gap-8 lg:grid-cols-[1fr_auto]">
         {/* Formulario */}
         <section className="space-y-4">
-          <h3 className="text-xl font-bold text-amber-50 flex items-center gap-2">
-            <MessageCircle className="text-orange-400" size={24} />
+          <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
+            <MessageCircle className="text-brand" size={24} />
             Envíame un mensaje
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm text-amber-100/80">
+                <label htmlFor="name" className="text-sm text-text-primary/80">
                   Nombre *
                 </label>
                 <input
@@ -115,7 +115,7 @@ export const ContactPage = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label htmlFor="email" className="text-sm text-amber-100/80">
+                <label htmlFor="email" className="text-sm text-text-primary/80">
                   Email *
                 </label>
                 <input
@@ -132,7 +132,7 @@ export const ContactPage = () => {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="subject" className="text-sm text-amber-100/80">
+              <label htmlFor="subject" className="text-sm text-text-primary/80">
                 Asunto *
               </label>
               <input
@@ -148,7 +148,7 @@ export const ContactPage = () => {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="message" className="text-sm text-amber-100/80">
+              <label htmlFor="message" className="text-sm text-text-primary/80">
                 Mensaje *
               </label>
               <textarea
@@ -172,12 +172,12 @@ export const ContactPage = () => {
               </ButtonWithIcon>
 
               {submitStatus === "success" && (
-                <p className="text-green-400 text-sm">
+                <p className="text-success text-sm">
                   ¡Mensaje enviado correctamente!
                 </p>
               )}
               {submitStatus === "error" && (
-                <p className="text-red-400 text-sm">
+                <p className="text-error text-sm">
                   Error al enviar. Intenta de nuevo.
                 </p>
               )}
@@ -189,7 +189,7 @@ export const ContactPage = () => {
         <aside className="space-y-6 lg:w-64">
           {/* Información directa */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-amber-50">
+            <h3 className="text-lg font-semibold text-text-primary">
               Información de contacto
             </h3>
             <ul className="space-y-3">
@@ -197,18 +197,18 @@ export const ContactPage = () => {
                 <li key={item.label} className="flex items-start gap-3">
                   <span className="mt-0.5">{item.icon}</span>
                   <div>
-                    <p className="text-amber-100/60 text-xs uppercase tracking-wide">
+                    <p className="text-text-muted text-xs uppercase tracking-wide">
                       {item.label}
                     </p>
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-amber-100 hover:text-cyan-400 transition-colors"
+                        className="text-text-primary hover:text-accent transition-colors"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <p className="text-amber-100">{item.value}</p>
+                      <p className="text-text-primary">{item.value}</p>
                     )}
                   </div>
                 </li>
@@ -218,7 +218,7 @@ export const ContactPage = () => {
 
           {/* Redes sociales */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-amber-50">
+            <h3 className="text-lg font-semibold text-text-primary">
               Sígueme en redes
             </h3>
             <div className="flex gap-4">
@@ -228,7 +228,7 @@ export const ContactPage = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                  className="text-accent hover:text-accent-hover transition-colors"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -238,9 +238,9 @@ export const ContactPage = () => {
           </div>
 
           {/* Disponibilidad */}
-          <div className="p-4 bg-neutral-900/50 border border-neutral-800 rounded-md">
-            <p className="text-amber-100/80 text-sm">
-              <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" />
+          <div className="p-4 bg-surface/50 border border-border-subtle rounded-md">
+            <p className="text-text-primary/80 text-sm">
+              <span className="inline-block w-2 h-2 bg-success rounded-full mr-2 animate-pulse" />
               Disponible para proyectos freelance y oportunidades laborales.
             </p>
           </div>

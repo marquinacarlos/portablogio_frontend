@@ -12,12 +12,12 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 			<a 
 				href={project.url}
 				target="_blank"
-				className="block font-extralight text-3xl text-end uppercase text-orange-400 md:text-5xl lg:text-7xl"
+				className="block font-extralight text-3xl text-end uppercase text-brand md:text-5xl lg:text-7xl"
 			>
 				{project.title}
 			</a>
 			<p 
-				className="text-sm text-end text-balance text-amber-100/70 lg:text-lg"
+				className="text-sm text-end text-balance text-text-secondary lg:text-lg"
 			>
 				{project.description}
 			</p>
@@ -27,7 +27,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 				))}
 			</CarouselOfItems>
 			<p 
-				className="text-xs font-extrabold text-end text-neutral-700 lg:text-md"
+				className="text-xs font-extrabold text-end text-border lg:text-md"
 			>
 				Jan 20, 2024
 			</p>

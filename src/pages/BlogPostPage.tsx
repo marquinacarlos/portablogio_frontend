@@ -17,12 +17,12 @@ const HeaderBlock = ({ block }: BlockProps) => {
   const text = block.data.text || "";
 
   const baseStyles = {
-    1: "text-3xl font-bold text-orange-400 mt-8 mb-4",
-    2: "text-2xl font-bold text-orange-400 mt-6 mb-3",
-    3: "text-xl font-semibold text-amber-100 mt-5 mb-2",
-    4: "text-lg font-semibold text-amber-100 mt-4 mb-2",
-    5: "text-base font-semibold text-amber-100 mt-3 mb-2",
-    6: "text-sm font-semibold text-amber-100 mt-3 mb-2",
+    1: "text-3xl font-bold text-brand mt-8 mb-4",
+    2: "text-2xl font-bold text-brand mt-6 mb-3",
+    3: "text-xl font-semibold text-text-primary mt-5 mb-2",
+    4: "text-lg font-semibold text-text-primary mt-4 mb-2",
+    5: "text-base font-semibold text-text-primary mt-3 mb-2",
+    6: "text-sm font-semibold text-text-primary mt-3 mb-2",
   } as const;
 
   const className = baseStyles[level as keyof typeof baseStyles] || baseStyles[2];
@@ -45,7 +45,7 @@ const HeaderBlock = ({ block }: BlockProps) => {
 
 const ParagraphBlock = ({ block }: BlockProps) => {
   return (
-    <p className="text-amber-100/90 leading-relaxed mb-4">
+    <p className="text-text-primary/90 leading-relaxed mb-4">
       {block.data.text}
     </p>
   );
@@ -57,19 +57,19 @@ const CodeBlock = ({ block }: BlockProps) => {
 
   return (
     <div className="my-4 rounded-md overflow-hidden">
-      <div className="flex items-center justify-between px-4 py-2 bg-neutral-800 border-b border-neutral-700">
-        <span className="text-xs text-cyan-400 font-mono uppercase">
+      <div className="flex items-center justify-between px-4 py-2 bg-surface-hover border-b border-border">
+        <span className="text-xs text-accent font-mono uppercase">
           {language}
         </span>
         <button
           onClick={() => navigator.clipboard.writeText(code)}
-          className="text-xs text-amber-100/50 hover:text-amber-100 transition-colors"
+          className="text-xs text-text-muted hover:text-text-primary transition-colors"
         >
           Copiar
         </button>
       </div>
-      <pre className="p-4 bg-neutral-900 overflow-x-auto">
-        <code className="text-sm font-mono text-amber-100/80 whitespace-pre">
+      <pre className="p-4 bg-surface overflow-x-auto">
+        <code className="text-sm font-mono text-text-primary/80 whitespace-pre">
           {code}
         </code>
       </pre>
@@ -83,7 +83,7 @@ const ImageBlock = ({ block }: BlockProps) => {
 
   return (
     <figure className="my-6">
-      <div className="rounded-md overflow-hidden bg-neutral-800">
+      <div className="rounded-md overflow-hidden bg-surface-hover">
         <img
           src={url}
           alt={caption || "Imagen del artículo"}
@@ -92,7 +92,7 @@ const ImageBlock = ({ block }: BlockProps) => {
         />
       </div>
       {caption && (
-        <figcaption className="mt-2 text-center text-sm text-amber-100/50 italic">
+        <figcaption className="mt-2 text-center text-sm text-text-muted italic">
           {caption}
         </figcaption>
       )}
@@ -119,7 +119,7 @@ const VideoBlock = ({ block }: BlockProps) => {
 
   return (
     <figure className="my-6">
-      <div className="aspect-video rounded-md overflow-hidden bg-neutral-800">
+      <div className="aspect-video rounded-md overflow-hidden bg-surface-hover">
         <iframe
           src={embedUrl}
           title={caption || "Video"}
@@ -129,7 +129,7 @@ const VideoBlock = ({ block }: BlockProps) => {
         />
       </div>
       {caption && (
-        <figcaption className="mt-2 text-center text-sm text-amber-100/50 italic">
+        <figcaption className="mt-2 text-center text-sm text-text-muted italic">
           {caption}
         </figcaption>
       )}
@@ -139,7 +139,7 @@ const VideoBlock = ({ block }: BlockProps) => {
 
 const QuoteBlock = ({ block }: BlockProps) => {
   return (
-    <blockquote className="my-6 pl-4 border-l-4 border-orange-400 italic text-amber-100/80">
+    <blockquote className="my-6 pl-4 border-l-4 border-brand italic text-text-primary/80">
       {block.data.text}
     </blockquote>
   );
@@ -213,8 +213,8 @@ export const BlogPostPage = () => {
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-12">
-        <div className="w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin mb-4" />
-        <p className="text-amber-100/70">Cargando artículo...</p>
+        <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin mb-4" />
+        <p className="text-text-secondary">Cargando artículo...</p>
       </div>
     );
   }
@@ -225,15 +225,15 @@ export const BlogPostPage = () => {
       <div className="space-y-6">
         <Link
           to="/blog"
-          className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+          className="inline-flex items-center gap-2 text-accent hover:text-accent-hover transition-colors"
         >
           <ArrowLeft size={18} />
           Volver al blog
         </Link>
 
-        <div className="p-6 bg-red-500/10 border border-red-500/30 rounded-md text-center">
-          <p className="text-red-400 text-lg font-semibold">{error}</p>
-          <p className="text-amber-100/60 mt-2">
+        <div className="p-6 bg-error/10 border border-error/30 rounded-md text-center">
+          <p className="text-error text-lg font-semibold">{error}</p>
+          <p className="text-text-muted mt-2">
             El artículo que buscas no existe o no está disponible.
           </p>
         </div>
@@ -251,7 +251,7 @@ export const BlogPostPage = () => {
       {/* Navegación */}
       <Link
         to="/blog"
-        className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm"
+        className="inline-flex items-center gap-2 text-accent hover:text-accent-hover transition-colors text-sm"
       >
         <ArrowLeft size={16} />
         Volver al blog
@@ -259,18 +259,18 @@ export const BlogPostPage = () => {
 
       {/* Header del post */}
       <header className="space-y-4">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-orange-400 leading-tight">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand leading-tight">
           {post.title}
         </h1>
 
         {post.excerpt && (
-          <p className="text-lg text-amber-100/80 leading-relaxed">
+          <p className="text-lg text-text-primary/80 leading-relaxed">
             {post.excerpt}
           </p>
         )}
 
         {/* Meta información */}
-        <div className="flex flex-wrap items-center gap-4 text-sm text-amber-100/60">
+        <div className="flex flex-wrap items-center gap-4 text-sm text-text-muted">
           <time
             dateTime={post.created_at}
             className="flex items-center gap-1.5"
@@ -288,7 +288,7 @@ export const BlogPostPage = () => {
 
       {/* Imagen de portada */}
       {post.cover_image_url && (
-        <div className="aspect-video rounded-md overflow-hidden bg-neutral-800">
+        <div className="aspect-video rounded-md overflow-hidden bg-surface-hover">
           <img
             src={post.cover_image_url}
             alt={post.title}
@@ -298,7 +298,7 @@ export const BlogPostPage = () => {
       )}
 
       {/* Separador */}
-      <hr className="border-neutral-700/50" />
+      <hr className="border-border/50" />
 
       {/* Contenido del post */}
       <div className="prose-custom">
@@ -308,14 +308,14 @@ export const BlogPostPage = () => {
       </div>
 
       {/* Footer del post */}
-      <footer className="pt-6 border-t border-neutral-700/50 space-y-4">
-        <p className="text-amber-100/70 text-sm">
+      <footer className="pt-6 border-t border-border/50 space-y-4">
+        <p className="text-text-secondary text-sm">
           ¿Te ha resultado útil este artículo? ¡Compártelo con otros!
         </p>
 
         <Link
           to="/blog"
-          className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+          className="inline-flex items-center gap-2 text-accent hover:text-accent-hover transition-colors"
         >
           <ArrowLeft size={18} />
           Ver más artículos

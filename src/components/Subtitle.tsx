@@ -10,7 +10,7 @@ export const Subtitle = ({ children, className }: SubtitleProps) => {
   return (
     <h2
       className={cn(
-        "w-fit text-2xl font-bold text-orange-400 uppercase tracking-wide lg:text-4xl",
+        "w-fit text-2xl font-bold text-brand uppercase tracking-wide lg:text-4xl",
         className
       )}
     >

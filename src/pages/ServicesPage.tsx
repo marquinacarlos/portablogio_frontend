@@ -101,17 +101,17 @@ const services: Service[] = [
 
 const processSteps = [
   {
-    icon: <MessageSquare className="text-orange-400" size={20} />,
+    icon: <MessageSquare className="text-brand" size={20} />,
     title: "Consulta inicial",
     description: "Hablamos sobre tu proyecto, objetivos y necesidades.",
   },
   {
-    icon: <Briefcase className="text-orange-400" size={20} />,
+    icon: <Briefcase className="text-brand" size={20} />,
     title: "Propuesta",
     description: "Recibo tu feedback y presento una propuesta detallada.",
   },
   {
-    icon: <Clock className="text-orange-400" size={20} />,
+    icon: <Clock className="text-brand" size={20} />,
     title: "Desarrollo",
     description: "Trabajo en tu proyecto con actualizaciones periódicas.",
   },
@@ -124,10 +124,10 @@ export const ServicesPage = () => {
 
       {/* Introducción */}
       <section className="space-y-2">
-        <p className="text-lg text-amber-100/90 leading-relaxed max-w-2xl">
+        <p className="text-lg text-text-primary/90 leading-relaxed max-w-2xl">
           Ofrezco soluciones web adaptadas a cada necesidad y presupuesto.
         </p>
-        <p className="text-amber-100/70 leading-relaxed max-w-2xl">
+        <p className="text-text-secondary leading-relaxed max-w-2xl">
           Desde una simple landing page hasta aplicaciones web complejas,
           cada proyecto recibe la misma dedicación y profesionalismo.
         </p>
@@ -148,31 +148,31 @@ export const ServicesPage = () => {
 
       {/* Proceso de trabajo */}
       <section className="space-y-4">
-        <h3 className="text-xl font-bold text-amber-50">
+        <h3 className="text-xl font-bold text-text-primary">
           ¿Cómo trabajamos juntos?
         </h3>
         <div className="grid gap-4 md:grid-cols-3">
           {processSteps.map((step, index) => (
             <div
               key={step.title}
-              className="p-4 bg-neutral-900/50 border border-neutral-800 rounded-md space-y-2"
+              className="p-4 bg-surface/50 border border-border-subtle rounded-md space-y-2"
             >
               <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 bg-cyan-400/20 rounded-full text-cyan-400 font-bold text-sm">
+                <span className="flex items-center justify-center w-8 h-8 bg-accent/20 rounded-full text-accent font-bold text-sm">
                   {index + 1}
                 </span>
                 {step.icon}
               </div>
-              <h4 className="text-amber-100 font-semibold">{step.title}</h4>
-              <p className="text-amber-100/60 text-sm">{step.description}</p>
+              <h4 className="text-text-primary font-semibold">{step.title}</h4>
+              <p className="text-text-muted text-sm">{step.description}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Nota final */}
-      <section className="pt-4 border-t border-neutral-700/50">
-        <p className="text-amber-100/70 text-sm leading-relaxed max-w-2xl">
+      <section className="pt-4 border-t border-border/50">
+        <p className="text-text-secondary text-sm leading-relaxed max-w-2xl">
           ¿No encuentras lo que buscas? Contáctame y hablamos sobre tu proyecto.
           También ofrezco planes de mantenimiento mensual para sitios existentes.
         </p>

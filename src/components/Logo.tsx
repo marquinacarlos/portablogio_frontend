@@ -10,7 +10,7 @@ export const Logo = () => {
 				>
 					Carlos Marquina
 				</Link>
-				<p className='text-[.6rem] lg:text-xs font-light tracking-[.3rem] uppercase text-cyan-400 pl-1.5'>
+				<p className='text-[.6rem] lg:text-xs font-light tracking-[.3rem] uppercase text-accent pl-1.5'>
 					Desarrollador web
 				</p>
 			</div>

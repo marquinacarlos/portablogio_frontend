@@ -184,7 +184,7 @@ const BlockRenderer = ({ block, onChange }: BlockRendererProps) => {
     case "quote":
       return <QuoteEditor block={block} onChange={onChange} />;
     default:
-      return <div className="text-red-400">Tipo de bloque desconocido: {block.type}</div>;
+      return <div className="text-error">Tipo de bloque desconocido: {block.type}</div>;
   }
 };
 
@@ -318,8 +318,8 @@ export const PostEditorPage = () => {
       <>
         <Subtitle>{isEditing ? "Editar articulo" : "Nuevo articulo"}</Subtitle>
         <div className="flex items-center justify-center py-12">
-          <Loader2 className="w-8 h-8 text-cyan-400 animate-spin" />
-          <span className="ml-3 text-amber-100/70">Cargando...</span>
+          <Loader2 className="w-8 h-8 text-accent animate-spin" />
+          <span className="ml-3 text-text-secondary">Cargando...</span>
         </div>
       </>
     );
@@ -340,7 +340,7 @@ export const PostEditorPage = () => {
             }
             navigate("/admin");
           }}
-          className="flex items-center gap-2 text-amber-100/70 hover:text-cyan-400 transition-colors"
+          className="flex items-center gap-2 text-text-secondary hover:text-accent transition-colors"
         >
           <ArrowLeft size={18} />
           Volver al panel
@@ -348,13 +348,13 @@ export const PostEditorPage = () => {
 
         <div className="flex items-center gap-3">
           {state.hasUnsavedChanges && (
-            <span className="text-sm text-amber-400">Cambios sin guardar</span>
+            <span className="text-sm text-warning">Cambios sin guardar</span>
           )}
 
           <button
             onClick={handleSave}
             disabled={state.isSaving}
-            className="flex items-center justify-center whitespace-nowrap py-2 px-4 bg-cyan-400 text-neutral-900 font-medium rounded-md gap-2 hover:bg-cyan-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="flex items-center justify-center whitespace-nowrap py-2 px-4 bg-accent text-background font-medium rounded-md gap-2 hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {state.isSaving ? (
               <Loader2 size={18} className="animate-spin" />
@@ -368,8 +368,8 @@ export const PostEditorPage = () => {
 
       {/* Error */}
       {state.error && (
-        <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-md">
-          <p className="text-red-400">{state.error}</p>
+        <div className="p-4 bg-error/10 border border-error/30 rounded-md">
+          <p className="text-error">{state.error}</p>
         </div>
       )}
 
@@ -390,7 +390,7 @@ export const PostEditorPage = () => {
 
       {/* Contenido - Bloques */}
       <section className="space-y-4">
-        <h3 className="text-xl font-bold text-amber-50">Contenido</h3>
+        <h3 className="text-xl font-bold text-text-primary">Contenido</h3>
 
         <div className="space-y-4">
           {state.blocks.map((block, index) => (
@@ -417,8 +417,8 @@ export const PostEditorPage = () => {
       </section>
 
       {/* Info */}
-      <section className="pt-4 border-t border-neutral-700/50">
-        <p className="text-amber-100/50 text-sm">
+      <section className="pt-4 border-t border-border/50">
+        <p className="text-text-muted text-sm">
           Usa los controles a la izquierda de cada bloque para reordenar o eliminar.
           Selecciona el estado del post (borrador, publicado, archivado) y presiona "Guardar".
         </p>

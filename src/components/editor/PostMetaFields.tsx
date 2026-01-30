@@ -31,9 +31,9 @@ const generateSlug = (title: string): string => {
 };
 
 const inputClasses =
-  "w-full px-4 py-3 bg-neutral-900/50 border border-neutral-700 rounded-md text-amber-100 placeholder:text-amber-100/40 focus:outline-none focus:border-cyan-400/50 focus:ring-1 focus:ring-cyan-400/30 transition-colors";
+  "w-full px-4 py-3 bg-surface/50 border border-border rounded-md text-text-primary placeholder:text-text-placeholder focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors";
 
-const labelClasses = "flex items-center gap-2 text-sm text-amber-100/80";
+const labelClasses = "flex items-center gap-2 text-sm text-text-primary/80";
 
 /**
  * Campos de metadatos del post (titulo, slug, excerpt, cover, status)
@@ -82,11 +82,11 @@ export const PostMetaFields = ({
   };
 
   return (
-    <div className="space-y-4 p-4 bg-neutral-900/30 border border-neutral-800 rounded-md">
+    <div className="space-y-4 p-4 bg-surface/30 border border-border-subtle rounded-md">
       {/* Titulo */}
       <div className="space-y-2">
         <label className={labelClasses}>
-          <FileText size={16} className="text-cyan-400" />
+          <FileText size={16} className="text-accent" />
           Titulo del articulo
         </label>
         <input
@@ -102,11 +102,11 @@ export const PostMetaFields = ({
       {/* Slug */}
       <div className="space-y-2">
         <label className={labelClasses}>
-          <LinkIcon size={16} className="text-cyan-400" />
+          <LinkIcon size={16} className="text-accent" />
           URL del articulo
         </label>
         <div className="flex items-center gap-2">
-          <span className="text-amber-100/50 text-sm">/blog/</span>
+          <span className="text-text-muted text-sm">/blog/</span>
           <input
             type="text"
             value={slug}
@@ -120,7 +120,7 @@ export const PostMetaFields = ({
       {/* Excerpt */}
       <div className="space-y-2">
         <label className={labelClasses}>
-          <Eye size={16} className="text-cyan-400" />
+          <Eye size={16} className="text-accent" />
           Resumen (opcional)
         </label>
         <textarea
@@ -135,7 +135,7 @@ export const PostMetaFields = ({
       {/* Cover Image URL */}
       <div className="space-y-2">
         <label className={labelClasses}>
-          <FileImage size={16} className="text-cyan-400" />
+          <FileImage size={16} className="text-accent" />
           Imagen de portada (URL)
         </label>
         <input
@@ -146,7 +146,7 @@ export const PostMetaFields = ({
           className={inputClasses}
         />
         {coverImageUrl && (
-          <div className="mt-2 relative aspect-video max-w-xs overflow-hidden rounded border border-neutral-700">
+          <div className="mt-2 relative aspect-video max-w-xs overflow-hidden rounded border border-border">
             <img
               src={coverImageUrl}
               alt="Preview"
@@ -170,9 +170,9 @@ export const PostMetaFields = ({
               value="draft"
               checked={status === "draft"}
               onChange={() => onStatusChange("draft")}
-              className="accent-cyan-400"
+              className="accent-accent"
             />
-            <span className="text-amber-100/80">Borrador</span>
+            <span className="text-text-primary/80">Borrador</span>
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -181,9 +181,9 @@ export const PostMetaFields = ({
               value="published"
               checked={status === "published"}
               onChange={() => onStatusChange("published")}
-              className="accent-cyan-400"
+              className="accent-accent"
             />
-            <span className="text-amber-100/80">Publicado</span>
+            <span className="text-text-primary/80">Publicado</span>
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -192,9 +192,9 @@ export const PostMetaFields = ({
               value="archived"
               checked={status === "archived"}
               onChange={() => onStatusChange("archived")}
-              className="accent-cyan-400"
+              className="accent-accent"
             />
-            <span className="text-amber-100/80">Archivado</span>
+            <span className="text-text-primary/80">Archivado</span>
           </label>
         </div>
       </div>
