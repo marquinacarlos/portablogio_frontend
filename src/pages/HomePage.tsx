@@ -71,7 +71,7 @@ export const HomePage = () => {
 
       {/* Acciones principales */}
       <section className="flex flex-wrap gap-4 items-center">
-          <DownloadButton href="/documents/carlos_marquina_dev_cv.pdf" download="marquina-carlos.pdf" openInNewTab={true}>
+          <DownloadButton href="/documents/carlos_marquina_cv_es.pdf" download="carlos_marquina_cv.pdf" openInNewTab={true}>
             Descargar y Ver
           </DownloadButton>
 
