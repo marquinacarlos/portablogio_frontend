@@ -1,7 +1,7 @@
 import { Link } from "react-router";
-import { FileUser, Github, Linkedin, Mail, Code2, Briefcase, ArrowRight } from "lucide-react";
+import { Github, Linkedin, Mail, Code2, Briefcase, ArrowRight } from "lucide-react";
 import { Blockquote } from "../components/Blockquote";
-import { ButtonWithIcon } from "../components/ButtonWithIcon";
+import { ButtonWithIcon, DownloadButton } from "../components/ButtonWithIcon";
 
 const technologies = [
   { name: "TypeScript", category: "language" },
@@ -16,17 +16,17 @@ const technologies = [
 const socialLinks = [
   {
     icon: <Github strokeWidth={1.5} size={24} />,
-    href: "https://github.com/tu-usuario",
+    href: "https://github.com/marquinacarlos",
     label: "GitHub",
   },
   {
     icon: <Linkedin strokeWidth={1.5} size={24} />,
-    href: "https://linkedin.com/in/tu-perfil",
+    href: "https://www.linkedin.com/in/marquinacarlos",
     label: "LinkedIn",
   },
   {
     icon: <Mail strokeWidth={1.5} size={24} />,
-    href: "mailto:tu@email.com",
+    href: "mailto:carlosscripto@gmail.com",
     label: "Email",
   },
 ];
@@ -71,15 +71,9 @@ export const HomePage = () => {
 
       {/* Acciones principales */}
       <section className="flex flex-wrap gap-4 items-center">
-        <a
-          href="/path-to-your-cv.pdf"
-          download="Carlos_Marquina_CV.pdf"
-          className="inline-flex"
-        >
-          <ButtonWithIcon icon={<FileUser size={18} />}>
-            Descargar CV
-          </ButtonWithIcon>
-        </a>
+          <DownloadButton href="/documents/carlos_marquina_dev_cv.pdf" download="marquina-carlos.pdf" openInNewTab={true}>
+            Descargar y Ver
+          </DownloadButton>
 
         <div className="flex gap-3 items-center">
           {socialLinks.map((social) => (
