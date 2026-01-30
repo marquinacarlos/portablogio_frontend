@@ -24,12 +24,12 @@ const socialLinks = [
   {
     icon: <Github size={24} />,
     label: "GitHub",
-    href: "https://github.com/tu-usuario",
+    href: "https://github.com/marquinacarlos",
   },
   {
     icon: <Linkedin size={24} />,
     label: "LinkedIn",
-    href: "https://linkedin.com/in/tu-perfil",
+    href: "https://www.linkedin.com/in/marquinacarlos",
   },
   {
     icon: <WhatsappIcon />,
