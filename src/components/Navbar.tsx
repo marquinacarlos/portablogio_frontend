@@ -24,7 +24,7 @@ const ToggleButton = ({ isOpen, onToggle }: ToggleButtonProps) => {
       onClick={onToggle}
       className={clsx(
         'fixed top-9 right-8 z-50 flex flex-col gap-1.5 w-8',
-        'md:hidden'
+        'lg:hidden'
       )}
     >
       <span className={clsx(
@@ -61,9 +61,9 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
       'transition-transform duration-500 ease-in-out',
       isOpen ? 'translate-x-0' : 'translate-x-full',
 
-      'md:static md:z-auto md:w-auto md:h-auto md:backdrop-blur-none',
-      'md:flex-row md:space-y-0 md:space-x-6 md:text-xl',
-      'md:translate-x-0 md:transition-none md:overflow-visible md:py-0'
+      'lg:static lg:z-auto lg:w-auto lg:h-auto lg:backdrop-blur-none',
+      'lg:flex-row lg:space-y-0 lg:space-x-6 lg:text-xl',
+      'lg:translate-x-0 lg:transition-none lg:overflow-visible lg:py-0'
     )}>
       <li>
         <NavLink
@@ -128,8 +128,8 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
           Admin
         </NavLink>
       </li>
-      {/* ThemeSelector solo visible en menu movil */}
-      <li className="md:hidden pt-4 border-t border-border/30">
+      {/* ThemeSelector solo visible en menu movil (no tablet ni desktop) */}
+      <li className="sm:hidden pt-4 border-t border-border/30">
         <ThemeSelector />
       </li>
     </ul>
@@ -147,11 +147,11 @@ export const Navbar = () => {
   return (
     <>
       <ToggleButton isOpen={isOpen} onToggle={handleClick} />
-      <nav className='h-auto md:flex md:justify-between md:items-center md:pr-4 max-w-7xl md:mx-auto md:w-full'>
+      <nav className='h-auto lg:flex lg:justify-between lg:items-center lg:pr-4 max-w-7xl lg:mx-auto lg:w-full'>
         <div className="flex items-center gap-2">
           <Logo />
-          {/* ThemeSelector visible solo en tablet/desktop */}
-          <div className="hidden md:block">
+          {/* ThemeSelector visible en tablet y desktop (fuera del menu) */}
+          <div className="hidden sm:block">
             <ThemeSelector />
           </div>
         </div>
