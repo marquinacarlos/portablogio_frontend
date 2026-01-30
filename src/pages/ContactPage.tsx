@@ -9,8 +9,8 @@ const contactInfo = [
   {
     icon: <Mail className="text-cyan-400" size={20} />,
     label: "Email",
-    value: "contacto@carlosmarquina.dev",
-    href: "mailto:contacto@carlosmarquina.dev",
+    value: "carlosscripto@gmail.com",
+    href: "mailto:carlosscripto@gmail.com",
   },
   {
     icon: <MapPin className="text-cyan-400" size={20} />,

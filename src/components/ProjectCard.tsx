@@ -7,7 +7,6 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
-	console.log(project)
 	return(
 		<li className="min-w-0 w-full">
 			<Link 
