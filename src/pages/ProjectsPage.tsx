@@ -8,7 +8,7 @@ const projects: Project[] = [
   {
     id: 1,
     title: "Flowventory",
-    slug: "flowventory_slug",
+    url: "https://github.com/marquinacarlos/Flowventory-Mini-Backend",
     description:
       "Una aplicación POS (Point of Sale) para el manejo, gestión y control de inventario para tiendas de cualquier tipo.",
     tech_stack: [
@@ -24,7 +24,7 @@ const projects: Project[] = [
   {
     id: 2,
     title: "Minitweet",
-    slug: "minitweet_slug",
+    url: "https://github.com/marquinacarlos/minitweet",
     description:
       "Una red social inspirada en Reddit y Twitter para compartir ideas, fotos, interactuar con publicaciones y chatear.",
     tech_stack: [

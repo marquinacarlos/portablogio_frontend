@@ -73,7 +73,7 @@ export interface CreatePostData {
 export interface Project {
   id: number;
   title: string;
-  slug: string;
+  url: string;
   description: string;
   tech_stack: string[];
   image_url?: string;

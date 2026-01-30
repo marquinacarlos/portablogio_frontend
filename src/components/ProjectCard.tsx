@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+// import { Link } from "react-router";
 import { CarouselOfItems } from "./CarouselOfItems";
 import type { Project } from "../types";
 
@@ -9,12 +9,13 @@ interface ProjectCardProps {
 export const ProjectCard = ({ project }: ProjectCardProps) => {
 	return(
 		<li className="min-w-0 w-full">
-			<Link 
-				to={{ pathname: `/${project.slug}`}} 
+			<a 
+				href={project.url}
+				target="_blank"
 				className="block font-extralight text-3xl text-end uppercase text-orange-400 md:text-5xl lg:text-7xl"
 			>
 				{project.title}
-			</Link>
+			</a>
 			<p 
 				className="text-sm text-end text-balance text-amber-100/70 lg:text-lg"
 			>
