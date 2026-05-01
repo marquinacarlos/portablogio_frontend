@@ -2,15 +2,21 @@ import { useState, type FormEvent } from "react";
 import { Mail, MapPin, Send, MessageCircle, Github, Linkedin } from "lucide-react";
 import { Subtitle } from "../components/Subtitle";
 import { ButtonWithIcon } from "../components/ButtonWithIcon";
-import { WhatsappIcon } from "../components/WhatsappIcon";
+// import { WhatsappIcon } from "../components/WhatsappIcon";
 import { contactService, type ContactFormData } from "../services/contactService";
+
+const email = "contact@carlosmarquina.dev";
+const subject = "Hola Carlos";
+const body = "Hola Carlos,\n\nSoy [TU_NOMBRE] y te escribo porque...";
+
+const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
 const contactInfo = [
   {
     icon: <Mail className="text-accent" size={20} />,
     label: "Email",
-    value: "carlosscripto@gmail.com",
-    href: "mailto:carlosscripto@gmail.com",
+    value: email,
+    href: mailtoLink,
   },
   {
     icon: <MapPin className="text-accent" size={20} />,
@@ -31,11 +37,11 @@ const socialLinks = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/marquinacarlos",
   },
-  {
-    icon: <WhatsappIcon />,
-    label: "WhatsApp",
-    href: "https://wa.me/34663143797",
-  },
+  // {
+  //   icon: <WhatsappIcon />,
+  //   label: "WhatsApp",
+  //   href: "https://wa.me/34663143797",
+  // },
 ];
 
 export const ContactPage = () => {
