@@ -13,6 +13,13 @@ const technologies = [
   { name: "Git", category: "tools" },
 ];
 
+const email = "contact@carlosmarquina.dev";
+const subject = "Hola Carlos";
+const body = "Hola Carlos,\n\nSoy [TU_NOMBRE] y te escribo porque...";
+
+const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+
 const socialLinks = [
   {
     icon: <Github strokeWidth={1.5} size={24} />,
@@ -26,7 +33,7 @@ const socialLinks = [
   },
   {
     icon: <Mail strokeWidth={1.5} size={24} />,
-    href: "mailto:carlosscripto@gmail.com",
+    href: mailtoLink,
     label: "Email",
   },
 ];
@@ -72,7 +79,7 @@ export const HomePage = () => {
       {/* Acciones principales */}
       <section className="flex flex-wrap gap-4 items-center">
           <DownloadButton 
-            href="/documents/carlos _marquina_cv_es.pdf" 
+            href="/documents/carlos_marquina_cv_es.pdf" 
             download="carlos_marquina_cv.pdf" 
             openInNewTab={true}
           >

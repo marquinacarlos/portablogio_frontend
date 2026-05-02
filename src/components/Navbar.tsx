@@ -92,7 +92,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
           Servicios
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink
           to={{ pathname: '/blog'}}
           onClick={onClose}
@@ -100,7 +100,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
         >
           Blog
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink
           to={{ pathname: '/about'}}
@@ -119,7 +119,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
           Contacto
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink
           to={{ pathname: '/login'}}
           onClick={onClose}
@@ -127,7 +127,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
         >
           Admin
         </NavLink>
-      </li>
+      </li> */}
       {/* ThemeSelector solo visible en menu movil (no tablet ni desktop) */}
       <li className="sm:hidden pt-4 border-t border-border/30">
         <ThemeSelector />
