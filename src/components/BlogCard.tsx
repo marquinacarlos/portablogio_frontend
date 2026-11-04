@@ -44,9 +44,9 @@ export function BlogCard({ post }: BlogCardProps) {
 }
 
 
-// La función formatDate debe retornar string
+// formatDate must return a string
 function formatDate(date: Date | string): string {
-  return new Date(date).toLocaleDateString('es-ES', {
+  return new Date(date).toLocaleDateString('en-GB', {
     year: 'numeric',
     month: 'short',
     day: 'numeric'

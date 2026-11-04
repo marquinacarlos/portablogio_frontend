@@ -6,8 +6,8 @@ import { ButtonWithIcon } from "../components/ButtonWithIcon";
 import { contactService, type ContactFormData } from "../services/contactService";
 
 const email = "contact@carlosmarquina.dev";
-const subject = "Hola Carlos";
-const body = "Hola Carlos,\n\nSoy [TU_NOMBRE] y te escribo porque...";
+const subject = "Hello Carlos";
+const body = "Hi Carlos,\n\nI'm [YOUR NAME] and I'm reaching out because...";
 
 const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
@@ -20,8 +20,8 @@ const contactInfo = [
   },
   {
     icon: <MapPin className="text-accent" size={20} />,
-    label: "Ubicación",
-    value: "España",
+    label: "Location",
+    value: "Barcelona, Spain",
     href: null,
   },
 ];
@@ -82,32 +82,32 @@ export const ContactPage = () => {
 
   return (
     <>
-      <Subtitle>Contacto</Subtitle>
+      <Subtitle>Contact</Subtitle>
 
-      {/* Introducción */}
+      {/* Introduction */}
       <section className="space-y-2">
         <p className="text-lg text-text-primary/90 leading-relaxed max-w-2xl">
-          ¿Tienes un proyecto en mente o una oportunidad laboral?
+          Do you have a project in mind or a job opportunity?
         </p>
         <p className="text-text-secondary leading-relaxed max-w-2xl">
-          Me encantaría escucharte. Completa el formulario o contáctame directamente
-          a través de cualquiera de los canales disponibles.
+          I'd love to hear from you. Fill out the form or contact me directly
+          through any of the channels below.
         </p>
       </section>
 
       <div className="grid gap-8 lg:grid-cols-[1fr_auto]">
-        {/* Formulario */}
+        {/* Form */}
         <section className="space-y-4">
           <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
             <MessageCircle className="text-brand" size={24} />
-            Envíame un mensaje
+            Send me a message
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm text-text-primary/80">
-                  Nombre *
+                  Name *
                 </label>
                 <input
                   type="text"
@@ -116,7 +116,7 @@ export const ContactPage = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="Tu nombre"
+                  placeholder="Your name"
                   className={inputClasses}
                 />
               </div>
@@ -131,7 +131,7 @@ export const ContactPage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="tu@email.com"
+                  placeholder="you@email.com"
                   className={inputClasses}
                 />
               </div>
@@ -139,7 +139,7 @@ export const ContactPage = () => {
 
             <div className="space-y-2">
               <label htmlFor="subject" className="text-sm text-text-primary/80">
-                Asunto *
+                Subject *
               </label>
               <input
                 type="text"
@@ -148,14 +148,14 @@ export const ContactPage = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                placeholder="¿En qué puedo ayudarte?"
+                placeholder="How can I help you?"
                 className={inputClasses}
               />
             </div>
 
             <div className="space-y-2">
               <label htmlFor="message" className="text-sm text-text-primary/80">
-                Mensaje *
+                Message *
               </label>
               <textarea
                 id="message"
@@ -164,7 +164,7 @@ export const ContactPage = () => {
                 onChange={handleChange}
                 required
                 rows={5}
-                placeholder="Cuéntame sobre tu proyecto o propuesta..."
+                placeholder="Tell me about your project or proposal..."
                 className={`${inputClasses} resize-none`}
               />
             </div>
@@ -174,29 +174,29 @@ export const ContactPage = () => {
                 icon={<Send size={18} />}
                 className={isSubmitting ? "opacity-70 cursor-not-allowed" : ""}
               >
-                {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+                {isSubmitting ? "Sending..." : "Send message"}
               </ButtonWithIcon>
 
               {submitStatus === "success" && (
                 <p className="text-success text-sm">
-                  ¡Mensaje enviado correctamente!
+                  Message sent successfully!
                 </p>
               )}
               {submitStatus === "error" && (
                 <p className="text-error text-sm">
-                  Error al enviar. Intenta de nuevo.
+                  Error sending message. Please try again.
                 </p>
               )}
             </div>
           </form>
         </section>
 
-        {/* Info de contacto */}
+        {/* Contact info */}
         <aside className="space-y-6 lg:w-64">
-          {/* Información directa */}
+          {/* Direct info */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-text-primary">
-              Información de contacto
+              Contact information
             </h3>
             <ul className="space-y-3">
               {contactInfo.map((item) => (
@@ -222,10 +222,10 @@ export const ContactPage = () => {
             </ul>
           </div>
 
-          {/* Redes sociales */}
+          {/* Social links */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-text-primary">
-              Sígueme en redes
+              Follow me
             </h3>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -243,11 +243,11 @@ export const ContactPage = () => {
             </div>
           </div>
 
-          {/* Disponibilidad */}
+          {/* Availability */}
           <div className="p-4 bg-surface/50 border border-border-subtle rounded-md">
             <p className="text-text-primary/80 text-sm">
               <span className="inline-block w-2 h-2 bg-success rounded-full mr-2 animate-pulse" />
-              Disponible para proyectos freelance y oportunidades laborales.
+              Available for freelance projects and job opportunities.
             </p>
           </div>
         </aside>

@@ -116,7 +116,7 @@ const editorReducer = (state: EditorState, action: EditorAction): EditorState =>
 
     case "DELETE_BLOCK": {
       const newBlocks = state.blocks.filter((block) => block.id !== action.id);
-      // Si se elimina el ultimo bloque, agregar uno vacio
+      // If the last block is removed, add an empty one
       if (newBlocks.length === 0) {
         newBlocks.push(createEmptyBlock("paragraph"));
       }
@@ -184,7 +184,7 @@ const BlockRenderer = ({ block, onChange }: BlockRendererProps) => {
     case "quote":
       return <QuoteEditor block={block} onChange={onChange} />;
     default:
-      return <div className="text-error">Tipo de bloque desconocido: {block.type}</div>;
+      return <div className="text-error">Unknown block type: {block.type}</div>;
   }
 };
 
@@ -200,7 +200,7 @@ export const PostEditorPage = () => {
 
   const isEditing = Boolean(slug);
 
-  // Cargar post si estamos editando
+  // Load the post if we're editing
   useEffect(() => {
     if (!slug) return;
 
@@ -227,7 +227,7 @@ export const PostEditorPage = () => {
       } catch (err) {
         dispatch({
           type: "SET_ERROR",
-          error: err instanceof Error ? err.message : "Error al cargar el post",
+          error: err instanceof Error ? err.message : "Error loading the post",
         });
       }
     };
@@ -235,7 +235,7 @@ export const PostEditorPage = () => {
     loadPost();
   }, [slug]);
 
-  // Advertir sobre cambios sin guardar al salir
+  // Warn about unsaved changes when leaving
   useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       if (state.hasUnsavedChanges) {
@@ -248,14 +248,14 @@ export const PostEditorPage = () => {
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [state.hasUnsavedChanges]);
 
-  // Validar antes de guardar
+  // Validate before saving
   const validatePost = (): string | null => {
     if (state.title.trim().length < 3) {
-      return "El titulo debe tener al menos 3 caracteres";
+      return "The title must be at least 3 characters";
     }
 
     if (!state.slug.trim()) {
-      return "El slug es obligatorio";
+      return "The slug is required";
     }
 
     const hasContent = state.blocks.some((block) => {
@@ -264,13 +264,13 @@ export const PostEditorPage = () => {
     });
 
     if (!hasContent) {
-      return "El post debe tener al menos un bloque con contenido";
+      return "The post must have at least one block with content";
     }
 
     return null;
   };
 
-  // Guardar post
+  // Save post
   const handleSave = useCallback(async () => {
     const validationError = validatePost();
     if (validationError) {
@@ -293,33 +293,33 @@ export const PostEditorPage = () => {
       };
 
       if (isEditing && slug) {
-        // Actualizar post existente
+        // Update existing post
         await postService.update(slug, postData);
         dispatch({ type: "MARK_SAVED" });
       } else {
-        // Crear nuevo post
+        // Create new post
         const newPost = await postService.create(postData);
         dispatch({ type: "MARK_SAVED" });
-        // Redirigir al modo edicion
+        // Redirect to edit mode
         navigate(`/admin/posts/${newPost.slug}/edit`, { replace: true });
       }
     } catch (err) {
       const message =
-        err instanceof Error ? err.message : "Error al guardar el post";
+        err instanceof Error ? err.message : "Error saving the post";
       dispatch({ type: "SET_ERROR", error: message });
     } finally {
       dispatch({ type: "SET_SAVING", isSaving: false });
     }
   }, [state, user, isEditing, slug, navigate]);
 
-  // Loading inicial
+  // Initial loading
   if (state.isLoading) {
     return (
       <>
-        <Subtitle>{isEditing ? "Editar articulo" : "Nuevo articulo"}</Subtitle>
+        <Subtitle>{isEditing ? "Edit article" : "New article"}</Subtitle>
         <div className="flex items-center justify-center py-12">
           <Loader2 className="w-8 h-8 text-accent animate-spin" />
-          <span className="ml-3 text-text-secondary">Cargando...</span>
+          <span className="ml-3 text-text-secondary">Loading...</span>
         </div>
       </>
     );
@@ -327,14 +327,14 @@ export const PostEditorPage = () => {
 
   return (
     <>
-      <Subtitle>{isEditing ? "Editar articulo" : "Nuevo articulo"}</Subtitle>
+      <Subtitle>{isEditing ? "Edit article" : "New article"}</Subtitle>
 
-      {/* Barra de acciones */}
+      {/* Action bar */}
       <section className="flex flex-wrap items-center justify-between gap-4">
         <button
           onClick={() => {
             if (state.hasUnsavedChanges) {
-              if (!confirm("Tienes cambios sin guardar. ¿Seguro que quieres salir?")) {
+              if (!confirm("You have unsaved changes. Are you sure you want to leave?")) {
                 return;
               }
             }
@@ -343,12 +343,12 @@ export const PostEditorPage = () => {
           className="flex items-center gap-2 text-text-secondary hover:text-accent transition-colors"
         >
           <ArrowLeft size={18} />
-          Volver al panel
+          Back to panel
         </button>
 
         <div className="flex items-center gap-3">
           {state.hasUnsavedChanges && (
-            <span className="text-sm text-warning">Cambios sin guardar</span>
+            <span className="text-sm text-warning">Unsaved changes</span>
           )}
 
           <button
@@ -361,7 +361,7 @@ export const PostEditorPage = () => {
             ) : (
               <Save size={18} />
             )}
-            Guardar
+            Save
           </button>
         </div>
       </section>
@@ -373,7 +373,7 @@ export const PostEditorPage = () => {
         </div>
       )}
 
-      {/* Metadatos */}
+      {/* Metadata */}
       <PostMetaFields
         title={state.title}
         slug={state.slug}
@@ -390,7 +390,7 @@ export const PostEditorPage = () => {
 
       {/* Contenido - Bloques */}
       <section className="space-y-4">
-        <h3 className="text-xl font-bold text-text-primary">Contenido</h3>
+        <h3 className="text-xl font-bold text-text-primary">Content</h3>
 
         <div className="space-y-4">
           {state.blocks.map((block, index) => (
@@ -410,7 +410,7 @@ export const PostEditorPage = () => {
           ))}
         </div>
 
-        {/* Toolbar para agregar bloques */}
+        {/* Toolbar to add blocks */}
         <BlockToolbar
           onAddBlock={(blockType) => dispatch({ type: "ADD_BLOCK", blockType })}
         />
@@ -419,8 +419,8 @@ export const PostEditorPage = () => {
       {/* Info */}
       <section className="pt-4 border-t border-border/50">
         <p className="text-text-muted text-sm">
-          Usa los controles a la izquierda de cada bloque para reordenar o eliminar.
-          Selecciona el estado del post (borrador, publicado, archivado) y presiona "Guardar".
+          Use the controls on the left of each block to reorder or delete it.
+          Select the post status (draft, published, archived) and press "Save".
         </p>
       </section>
     </>

@@ -10,7 +10,7 @@ const inputClasses =
   "w-full px-4 py-3 bg-surface/50 border border-border rounded-md text-text-primary placeholder:text-text-placeholder focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors";
 
 /**
- * Extrae el ID de video de una URL de YouTube
+ * Extracts the video ID from a YouTube URL
  */
 const getYouTubeId = (url: string): string | null => {
   const patterns = [
@@ -27,7 +27,7 @@ const getYouTubeId = (url: string): string | null => {
 };
 
 /**
- * Editor de bloque de video con URL y caption
+ * Video block editor with URL and caption
  */
 export const VideoEditor = ({ block, onChange }: VideoEditorProps) => {
   const { url, caption } = block.data;
@@ -46,7 +46,7 @@ export const VideoEditor = ({ block, onChange }: VideoEditorProps) => {
         type="url"
         value={url || ""}
         onChange={(e) => onChange({ ...block.data, url: e.target.value })}
-        placeholder="URL del video (ej: https://www.youtube.com/watch?v=...)"
+        placeholder="Video URL (e.g.: https://www.youtube.com/watch?v=...)"
         className={inputClasses}
       />
 
@@ -65,7 +65,7 @@ export const VideoEditor = ({ block, onChange }: VideoEditorProps) => {
 
       {url && !youtubeId && (
         <div className="p-4 bg-warning/10 border border-warning/30 rounded text-sm text-warning">
-          Solo se soportan videos de YouTube. Asegurate de usar una URL valida.
+          Only YouTube videos are supported. Make sure to use a valid URL.
         </div>
       )}
 
@@ -74,7 +74,7 @@ export const VideoEditor = ({ block, onChange }: VideoEditorProps) => {
         type="text"
         value={caption || ""}
         onChange={(e) => onChange({ ...block.data, caption: e.target.value })}
-        placeholder="Descripcion del video (opcional)"
+        placeholder="Video description (optional)"
         className={`${inputClasses} text-sm`}
       />
     </div>

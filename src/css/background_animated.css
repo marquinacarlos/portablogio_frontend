@@ -9,7 +9,7 @@
 	left: 0;
 	width: 100dvw;
 	height: 100%;
-  isolation: isolate; /*Fuerza al elemento a actuar como una capa separada en el orden de apilamiento.*/
+  isolation: isolate; /*Forces the element to act as a separate layer in the stacking order.*/
   pointer-events: none;
 }
 
@@ -31,8 +31,8 @@
   border-radius: 100%;
   filter: blur(60px); 
   opacity: 0.4;
-  mix-blend-mode: soft-light; /*define cómo los colores de un elemento se mezclan con los colores del fondo*/
-  will-change: transform; /*Hace que animaciones de escalado, traslación, rotación y sesgado sean más fluidas. */
+  mix-blend-mode: soft-light; /*defines how an element's colors blend with the background colors*/
+  will-change: transform; /*Makes scaling, translation, rotation and skew animations smoother. */
 }
 
 .dot-red {
@@ -87,7 +87,7 @@
 
 
 
-/* Modo claro: reducir opacidad para no interferir con la lectura */
+/* Light mode: reduce opacity so it doesn't interfere with reading */
 [data-theme="light"] .optimized-dot {
   opacity: 0.12;
   filter: blur(80px);

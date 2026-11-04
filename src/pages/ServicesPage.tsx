@@ -7,94 +7,94 @@ import type { Service } from "../types";
 const services: Service[] = [
   {
     id: 1,
-    title: "Tutoría personalizada",
+    title: "Personalized tutoring",
     description:
-      "Sesiones individuales para resolver dudas, revisar código o aprender nuevas tecnologías.",
+      "One-on-one sessions to answer questions, review code or learn new technologies.",
     price: 15,
     features: [
-      "Sesión de 1 hora por videollamada",
-      "Revisión de código en tiempo real",
-      "Resolución de dudas técnicas",
-      "Material de apoyo personalizado",
+      "1-hour video call session",
+      "Live code review",
+      "Technical Q&A",
+      "Personalized support material",
     ],
   },
   {
     id: 2,
     title: "Landing Page / One Page",
     description:
-      "Página web de una sola página, perfecta para presentar tu marca, producto o servicio.",
+      "A single-page website, perfect to present your brand, product or service.",
     price: 150,
     features: [
-      "Diseño responsive adaptable",
-      "Optimización SEO básica",
-      "Formulario de contacto",
-      "Integración con redes sociales",
-      "Hosting incluido primer año",
-      "Soporte técnico 30 días",
+      "Responsive design",
+      "Basic SEO optimization",
+      "Contact form",
+      "Social media integration",
+      "Hosting included for the first year",
+      "30 days of technical support",
     ],
   },
   {
     id: 3,
-    title: "Sitio web corporativo",
+    title: "Corporate website",
     description:
-      "Página web multipágina completa para tu empresa con todas las secciones esenciales.",
+      "A complete multi-page website for your company with every essential section.",
     price: 400,
     features: [
-      "Hasta 5 páginas personalizadas",
-      "Panel de administración básico",
-      "Blog integrado",
-      "Optimización SEO avanzada",
-      "Formularios personalizados",
-      "Integración con Google Analytics",
+      "Up to 5 custom pages",
+      "Basic admin panel",
+      "Built-in blog",
+      "Advanced SEO optimization",
+      "Custom forms",
+      "Google Analytics integration",
     ],
   },
   {
     id: 4,
-    title: "Blog personal",
+    title: "Personal blog",
     description:
-      "Plataforma de blog completa con sistema de gestión de contenido y diseño personalizado.",
+      "A complete blog platform with a content management system and custom design.",
     price: 300,
     features: [
-      "Sistema de gestión de posts",
-      "Categorías y etiquetas",
-      "Sistema de comentarios",
-      "Diseño personalizado",
-      "Panel de administración",
-      "Optimización para lectores",
+      "Post management system",
+      "Categories and tags",
+      "Comment system",
+      "Custom design",
+      "Admin panel",
+      "Optimized for readers",
     ],
   },
   {
     id: 5,
     title: "E-commerce",
     description:
-      "Tienda online completa con gestión de productos, carrito de compras y pasarela de pago.",
+      "A full online store with product management, shopping cart and payment gateway.",
     price: 800,
     features: [
-      "Catálogo de productos ilimitado",
-      "Carrito de compras",
-      "Pasarela de pago integrada",
-      "Gestión de inventario",
-      "Panel de administración completo",
-      "Sistema de envíos configurable",
-      "Notificaciones por email",
-      "Soporte técnico 60 días",
+      "Unlimited product catalog",
+      "Shopping cart",
+      "Integrated payment gateway",
+      "Inventory management",
+      "Full admin panel",
+      "Configurable shipping",
+      "Email notifications",
+      "60 days of technical support",
     ],
   },
   {
     id: 6,
-    title: "Aplicación web personalizada",
+    title: "Custom web application",
     description:
-      "Desarrollo a medida según tus necesidades específicas. Ideal para proyectos únicos.",
+      "Tailor-made development for your specific needs. Ideal for unique projects.",
     price: 1500,
     features: [
-      "Análisis de requerimientos",
-      "Arquitectura personalizada",
-      "Base de datos optimizada",
-      "API REST completa",
-      "Panel de administración",
-      "Documentación técnica",
-      "Despliegue en servidor",
-      "Soporte técnico 90 días",
+      "Requirements analysis",
+      "Custom architecture",
+      "Optimized database",
+      "Full REST API",
+      "Admin panel",
+      "Technical documentation",
+      "Server deployment",
+      "90 days of technical support",
     ],
   },
 ];
@@ -102,38 +102,38 @@ const services: Service[] = [
 const processSteps = [
   {
     icon: <MessageSquare className="text-brand" size={20} />,
-    title: "Consulta inicial",
-    description: "Hablamos sobre tu proyecto, objetivos y necesidades.",
+    title: "Initial consultation",
+    description: "We talk about your project, goals and needs.",
   },
   {
     icon: <Briefcase className="text-brand" size={20} />,
-    title: "Propuesta",
-    description: "Recibo tu feedback y presento una propuesta detallada.",
+    title: "Proposal",
+    description: "I take your feedback and present a detailed proposal.",
   },
   {
     icon: <Clock className="text-brand" size={20} />,
-    title: "Desarrollo",
-    description: "Trabajo en tu proyecto con actualizaciones periódicas.",
+    title: "Development",
+    description: "I work on your project with regular updates.",
   },
 ];
 
 export const ServicesPage = () => {
   return (
     <>
-      <Subtitle>Servicios</Subtitle>
+      <Subtitle>Services</Subtitle>
 
-      {/* Introducción */}
+      {/* Introduction */}
       <section className="space-y-2">
         <p className="text-lg text-text-primary/90 leading-relaxed max-w-2xl">
-          Ofrezco soluciones web adaptadas a cada necesidad y presupuesto.
+          I offer web solutions tailored to each need and budget.
         </p>
         <p className="text-text-secondary leading-relaxed max-w-2xl">
-          Desde una simple landing page hasta aplicaciones web complejas,
-          cada proyecto recibe la misma dedicación y profesionalismo.
+          From a simple landing page to complex web applications,
+          every project gets the same dedication and professionalism.
         </p>
       </section>
 
-      {/* Lista de servicios */}
+      {/* Service list */}
       <List>
         {services.map((item) => (
           <List.ServiceCard key={item.id} service={item} />
@@ -142,14 +142,14 @@ export const ServicesPage = () => {
 
       {/* Quote */}
       <Blockquote className="max-w-xl border-l-4 border-orange-400">
-        Cada proyecto es único. Los precios son orientativos y se ajustan
-        según la complejidad real del trabajo.
+        Every project is unique. Prices are a starting point and adjust
+        to the real complexity of the work.
       </Blockquote>
 
-      {/* Proceso de trabajo */}
+      {/* Work process */}
       <section className="space-y-4">
         <h3 className="text-xl font-bold text-text-primary">
-          ¿Cómo trabajamos juntos?
+          How do we work together?
         </h3>
         <div className="grid gap-4 md:grid-cols-3">
           {processSteps.map((step, index) => (
@@ -170,11 +170,11 @@ export const ServicesPage = () => {
         </div>
       </section>
 
-      {/* Nota final */}
+      {/* Final note */}
       <section className="pt-4 border-t border-border/50">
         <p className="text-text-secondary text-sm leading-relaxed max-w-2xl">
-          ¿No encuentras lo que buscas? Contáctame y hablamos sobre tu proyecto.
-          También ofrezco planes de mantenimiento mensual para sitios existentes.
+          Can't find what you're looking for? Contact me and let's talk about your project.
+          I also offer monthly maintenance plans for existing sites.
         </p>
       </section>
     </>

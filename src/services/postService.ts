@@ -1,7 +1,7 @@
 import api from "../lib/axios";
 import type { BlogPost, CreatePostData, ApiResponse } from "../types";
 
-/** Datos para actualizar un post */
+/** Data to update a post */
 export interface UpdatePostData {
   title?: string;
   slug?: string;
@@ -14,7 +14,7 @@ export interface UpdatePostData {
 
 export const postService = {
   /**
-   * Obtener un post por su slug (incluye content)
+   * Get a post by its slug (includes content)
    */
   getBySlug: async (slug: string): Promise<BlogPost> => {
     const response = await api.get<ApiResponse<BlogPost>>(`/posts/${slug}`);
@@ -22,7 +22,7 @@ export const postService = {
   },
 
   /**
-   * Crear un nuevo post
+   * Create a new post
    */
   create: async (data: CreatePostData): Promise<BlogPost> => {
     const response = await api.post<ApiResponse<BlogPost>>("/posts", data);
@@ -30,7 +30,7 @@ export const postService = {
   },
 
   /**
-   * Actualizar un post existente
+   * Update an existing post
    */
   update: async (slug: string, data: UpdatePostData): Promise<BlogPost> => {
     const response = await api.put<ApiResponse<BlogPost>>(`/posts/${slug}`, data);
@@ -38,7 +38,7 @@ export const postService = {
   },
 
   /**
-   * Eliminar un post
+   * Delete a post
    */
   delete: async (slug: string): Promise<void> => {
     await api.delete(`/posts/${slug}`);

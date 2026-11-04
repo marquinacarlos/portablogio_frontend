@@ -20,7 +20,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
           )}
         </div>
         <div className="flex items-baseline gap-1 shrink-0">
-          <span className="text-text-muted text-sm">desde</span>
+          <span className="text-text-muted text-sm">from</span>
           <span className="text-2xl font-bold text-accent">
             {service.price}€
           </span>

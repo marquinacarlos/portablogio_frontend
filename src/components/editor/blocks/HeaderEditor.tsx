@@ -15,12 +15,12 @@ const levelOptions = [
 ];
 
 /**
- * Editor de bloque de titulo con selector de nivel
+ * Heading block editor with a level selector
  */
 export const HeaderEditor = ({ block, onChange }: HeaderEditorProps) => {
   const level = block.data.level || 2;
 
-  // Tamanos de texto segun nivel
+  // Text sizes by level
   const textSizeClasses: Record<number, string> = {
     1: "text-3xl",
     2: "text-2xl",
@@ -32,9 +32,9 @@ export const HeaderEditor = ({ block, onChange }: HeaderEditorProps) => {
 
   return (
     <div className="space-y-2">
-      {/* Selector de nivel */}
+      {/* Level selector */}
       <div className="flex items-center gap-2">
-        <span className="text-xs text-text-muted">Nivel:</span>
+        <span className="text-xs text-text-muted">Level:</span>
         <div className="flex gap-1">
           {levelOptions.map((option) => (
             <button
@@ -53,12 +53,12 @@ export const HeaderEditor = ({ block, onChange }: HeaderEditorProps) => {
         </div>
       </div>
 
-      {/* Input de titulo */}
+      {/* Title input */}
       <input
         type="text"
         value={block.data.text || ""}
         onChange={(e) => onChange({ ...block.data, text: e.target.value })}
-        placeholder="Escribe un titulo..."
+        placeholder="Write a heading..."
         className={`w-full px-4 py-3 bg-surface/50 border border-border rounded-md text-text-primary font-bold placeholder:text-text-placeholder focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors ${textSizeClasses[level]}`}
       />
     </div>

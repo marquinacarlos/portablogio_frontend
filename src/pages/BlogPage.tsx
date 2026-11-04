@@ -17,13 +17,13 @@ export const BlogPage = () => {
         const response = await fetch(`${API_URL}/posts`);
 
         if (!response.ok) {
-          throw new Error(`Error HTTP: ${response.status}`);
+          throw new Error(`HTTP error: ${response.status}`);
         }
 
         const result: ApiResponse<BlogPostSummary[]> = await response.json();
         setPosts(result.data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Error al cargar posts");
+        setError(err instanceof Error ? err.message : "Error loading posts");
       } finally {
         setIsLoading(false);
       }
@@ -33,7 +33,7 @@ export const BlogPage = () => {
   }, []);
 
   const formatDate = (dateString: string): string => {
-    return new Date(dateString).toLocaleDateString("es-ES", {
+    return new Date(dateString).toLocaleDateString("en-GB", {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -44,26 +44,26 @@ export const BlogPage = () => {
     <>
       <Subtitle>Blog</Subtitle>
 
-      {/* Introducción */}
+      {/* Introduction */}
       <section className="space-y-2">
         <p className="text-lg text-text-primary/90 leading-relaxed max-w-2xl">
-          Artículos sobre desarrollo web, tecnología y aprendizajes.
+          Articles about web development, technology and what I'm learning.
         </p>
         <p className="text-text-secondary leading-relaxed max-w-2xl">
-          Comparto experiencias, tutoriales y reflexiones sobre el mundo del
-          desarrollo de software.
+          I share experiences, tutorials and thoughts about the world of
+          software development.
         </p>
       </section>
 
-      {/* Estado de carga */}
+      {/* Loading state */}
       {isLoading && (
         <div className="flex items-center gap-3 text-text-secondary">
           <div className="w-5 h-5 border-2 border-accent border-t-transparent rounded-full animate-spin" />
-          <span>Cargando artículos...</span>
+          <span>Loading articles...</span>
         </div>
       )}
 
-      {/* Estado de error */}
+      {/* Error state */}
       {error && (
         <div className="p-4 bg-error/10 border border-error/30 rounded-md">
           <p className="text-error">Error: {error}</p>
@@ -71,17 +71,17 @@ export const BlogPage = () => {
             onClick={() => window.location.reload()}
             className="mt-2 text-sm text-accent hover:text-accent-hover underline"
           >
-            Intentar de nuevo
+            Try again
           </button>
         </div>
       )}
 
-      {/* Lista de posts */}
+      {/* Post list */}
       {!isLoading && !error && posts.length > 0 && (
         <section className="space-y-4">
           <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
             <BookOpen className="text-brand" size={24} />
-            Artículos recientes
+            Recent articles
           </h3>
 
           <ul className="space-y-4">
@@ -91,7 +91,7 @@ export const BlogPage = () => {
                 className="group p-4 bg-surface/50 border border-border-subtle rounded-md hover:border-brand/30 transition-colors"
               >
                 <Link to={`/blog/${post.slug}`} className="block space-y-3">
-                  {/* Imagen de portada */}
+                  {/* Cover image */}
                   {post.cover_image_url && (
                     <div className="aspect-video overflow-hidden rounded-md bg-surface-hover">
                       <img
@@ -103,7 +103,7 @@ export const BlogPage = () => {
                     </div>
                   )}
 
-                  {/* Contenido */}
+                  {/* Content */}
                   <div className="space-y-2">
                     <h4 className="text-lg font-semibold text-brand group-hover:text-brand-hover transition-colors">
                       {post.title}
@@ -125,7 +125,7 @@ export const BlogPage = () => {
                       </time>
 
                       <span className="flex items-center gap-1 text-accent text-sm group-hover:gap-2 transition-all">
-                        Leer más
+                        Read more
                         <ArrowRight size={16} />
                       </span>
                     </div>
@@ -137,29 +137,29 @@ export const BlogPage = () => {
         </section>
       )}
 
-      {/* Sin posts */}
+      {/* No posts */}
       {!isLoading && !error && posts.length === 0 && (
         <div className="p-6 bg-surface/50 border border-border-subtle rounded-md text-center">
           <BookOpen className="mx-auto text-text-muted/50 mb-3" size={48} />
           <p className="text-text-secondary">
-            Aún no hay artículos publicados.
+            No articles published yet.
           </p>
           <p className="text-text-muted text-sm mt-1">
-            ¡Vuelve pronto para ver nuevo contenido!
+            Come back soon for new content!
           </p>
         </div>
       )}
 
       {/* Quote */}
       <Blockquote className="max-w-xl border-l-4 border-orange-400">
-        Escribir es pensar en voz alta. Compartir es aprender dos veces.
+        Writing is thinking out loud. Sharing is learning twice.
       </Blockquote>
 
-      {/* Cierre */}
+      {/* Closing */}
       <section className="pt-4 border-t border-border/50">
         <p className="text-text-secondary text-sm leading-relaxed max-w-2xl">
-          ¿Tienes algún tema que te gustaría que escribiera? Contáctame y
-          cuéntame tus ideas.
+          Is there a topic you'd like me to write about? Contact me and
+          tell me your ideas.
         </p>
       </section>
     </>

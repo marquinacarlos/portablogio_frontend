@@ -5,7 +5,7 @@ import { API_URL } from "../config/api";
 import type { BlogPost, ApiResponse, ContentBlock } from "../types";
 
 // =============================================================================
-// COMPONENTES PARA RENDERIZAR CONTENT BLOCKS
+// COMPONENTS TO RENDER CONTENT BLOCKS
 // =============================================================================
 
 interface BlockProps {
@@ -65,7 +65,7 @@ const CodeBlock = ({ block }: BlockProps) => {
           onClick={() => navigator.clipboard.writeText(code)}
           className="text-xs text-text-muted hover:text-text-primary transition-colors"
         >
-          Copiar
+          Copy
         </button>
       </div>
       <pre className="p-4 bg-surface overflow-x-auto">
@@ -86,7 +86,7 @@ const ImageBlock = ({ block }: BlockProps) => {
       <div className="rounded-md overflow-hidden bg-surface-hover">
         <img
           src={url}
-          alt={caption || "Imagen del artículo"}
+          alt={caption || "Article image"}
           className="w-full h-auto"
           loading="lazy"
         />
@@ -104,7 +104,7 @@ const VideoBlock = ({ block }: BlockProps) => {
   const url = block.data.url || "";
   const caption = block.data.caption;
 
-  // Detectar si es YouTube o Vimeo
+  // Detect if it's YouTube or Vimeo
   const isYouTube = url.includes("youtube.com") || url.includes("youtu.be");
   const isVimeo = url.includes("vimeo.com");
 
@@ -145,7 +145,7 @@ const QuoteBlock = ({ block }: BlockProps) => {
   );
 };
 
-// Componente que renderiza un bloque según su tipo
+// Component that renders a block based on its type
 const ContentBlockRenderer = ({ block }: BlockProps) => {
   switch (block.type) {
     case "header":
@@ -166,7 +166,7 @@ const ContentBlockRenderer = ({ block }: BlockProps) => {
 };
 
 // =============================================================================
-// PÁGINA DE DETALLE DEL POST
+// POST DETAIL PAGE
 // =============================================================================
 
 export const BlogPostPage = () => {
@@ -184,15 +184,15 @@ export const BlogPostPage = () => {
 
         if (!response.ok) {
           if (response.status === 404) {
-            throw new Error("Artículo no encontrado");
+            throw new Error("Article not found");
           }
-          throw new Error(`Error HTTP: ${response.status}`);
+          throw new Error(`HTTP error: ${response.status}`);
         }
 
         const result: ApiResponse<BlogPost> = await response.json();
         setPost(result.data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Error al cargar el artículo");
+        setError(err instanceof Error ? err.message : "Error loading the article");
       } finally {
         setIsLoading(false);
       }
@@ -202,24 +202,24 @@ export const BlogPostPage = () => {
   }, [slug]);
 
   const formatDate = (dateString: string): string => {
-    return new Date(dateString).toLocaleDateString("es-ES", {
+    return new Date(dateString).toLocaleDateString("en-GB", {
       year: "numeric",
       month: "long",
       day: "numeric",
     });
   };
 
-  // Estado de carga
+  // Loading state
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-12">
         <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin mb-4" />
-        <p className="text-text-secondary">Cargando artículo...</p>
+        <p className="text-text-secondary">Loading article...</p>
       </div>
     );
   }
 
-  // Estado de error
+  // Error state
   if (error) {
     return (
       <div className="space-y-6">
@@ -228,36 +228,36 @@ export const BlogPostPage = () => {
           className="inline-flex items-center gap-2 text-accent hover:text-accent-hover transition-colors"
         >
           <ArrowLeft size={18} />
-          Volver al blog
+          Back to blog
         </Link>
 
         <div className="p-6 bg-error/10 border border-error/30 rounded-md text-center">
           <p className="text-error text-lg font-semibold">{error}</p>
           <p className="text-text-muted mt-2">
-            El artículo que buscas no existe o no está disponible.
+            The article you're looking for doesn't exist or isn't available.
           </p>
         </div>
       </div>
     );
   }
 
-  // Sin post
+  // No post
   if (!post) {
     return null;
   }
 
   return (
     <article className="space-y-6">
-      {/* Navegación */}
+      {/* Navigation */}
       <Link
         to="/blog"
         className="inline-flex items-center gap-2 text-accent hover:text-accent-hover transition-colors text-sm"
       >
         <ArrowLeft size={16} />
-        Volver al blog
+        Back to blog
       </Link>
 
-      {/* Header del post */}
+      {/* Post header */}
       <header className="space-y-4">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand leading-tight">
           {post.title}
@@ -269,7 +269,7 @@ export const BlogPostPage = () => {
           </p>
         )}
 
-        {/* Meta información */}
+        {/* Meta info */}
         <div className="flex flex-wrap items-center gap-4 text-sm text-text-muted">
           <time
             dateTime={post.created_at}
@@ -286,7 +286,7 @@ export const BlogPostPage = () => {
         </div>
       </header>
 
-      {/* Imagen de portada */}
+      {/* Cover image */}
       {post.cover_image_url && (
         <div className="aspect-video rounded-md overflow-hidden bg-surface-hover">
           <img
@@ -297,20 +297,20 @@ export const BlogPostPage = () => {
         </div>
       )}
 
-      {/* Separador */}
+      {/* Separator */}
       <hr className="border-border/50" />
 
-      {/* Contenido del post */}
+      {/* Post content */}
       <div className="prose-custom">
         {post.content.map((block) => (
           <ContentBlockRenderer key={block.id} block={block} />
         ))}
       </div>
 
-      {/* Footer del post */}
+      {/* Post footer */}
       <footer className="pt-6 border-t border-border/50 space-y-4">
         <p className="text-text-secondary text-sm">
-          ¿Te ha resultado útil este artículo? ¡Compártelo con otros!
+          Did you find this article helpful? Share it with others!
         </p>
 
         <Link
@@ -318,7 +318,7 @@ export const BlogPostPage = () => {
           className="inline-flex items-center gap-2 text-accent hover:text-accent-hover transition-colors"
         >
           <ArrowLeft size={18} />
-          Ver más artículos
+          See more articles
         </Link>
       </footer>
     </article>

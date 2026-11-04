@@ -1,7 +1,7 @@
 import axios from "axios";
 import { API_URL } from "../config/api";
 
-// Crear instancia de axios con configuración base
+// Create an axios instance with base configuration
 const api = axios.create({
   baseURL: API_URL,
   headers: {
@@ -9,7 +9,7 @@ const api = axios.create({
   },
 });
 
-// Interceptor de request: añadir token si existe
+// Request interceptor: add token if it exists
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("auth_token");
@@ -32,7 +32,7 @@ api.interceptors.response.use(
       localStorage.removeItem("auth_token");
       localStorage.removeItem("auth_user");
 
-      // Redirigir a login si no estamos ya ahí
+      // Redirect to login if we're not already there
       if (window.location.pathname !== "/login") {
         window.location.href = "/login";
       }

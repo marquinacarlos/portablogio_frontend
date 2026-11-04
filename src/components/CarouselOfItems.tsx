@@ -42,11 +42,11 @@ export const CarouselOfItems = ({ children }: PropsWithChildren) => {
 
     /**
      * requestAnimationFrame:
-     * Es una función nativa del navegador que sirve para sincronizar tu código con el refresco
-		 * de la pantalla (normalmente 60 o 144 veces por segundo).
-		 * Imagina que el navegador es un animador que dibuja fotogramas. 
-		 * requestAnimationFrame (rAF) es como levantar la mano y decirle: 
-		 * "Espera, justo antes de que dibujes el siguiente cuadro, por favor ejecuta esta función".
+     * A native browser function used to sync your code with the screen
+		 * refresh (usually 60 or 144 times per second).
+		 * Imagine the browser as an animator drawing frames.
+		 * requestAnimationFrame (rAF) is like raising your hand and saying:
+		 * "Wait, right before you draw the next frame, please run this function".
      */
     const frame = requestAnimationFrame(checkScroll);
 

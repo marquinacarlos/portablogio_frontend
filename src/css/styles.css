@@ -16,7 +16,7 @@ a.active::before {
   border-radius: 4px;
 
   transform-origin: left;
-  /* Ejecuta la animación 'crecer' una vez durante 0.3s */
+  /* Runs the 'grow' animation once over 0.3s */
   animation: expand-x 0.3s ease-out forwards;
 }
 

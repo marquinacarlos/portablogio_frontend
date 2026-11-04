@@ -21,22 +21,22 @@ const languageOptions = [
   { value: "csharp", label: "C#" },
   { value: "php", label: "PHP" },
   { value: "ruby", label: "Ruby" },
-  { value: "text", label: "Texto plano" },
+  { value: "text", label: "Plain text" },
 ];
 
 /**
- * Editor de bloque de codigo con selector de lenguaje
+ * Code block editor with a language selector
  */
 export const CodeEditor = ({ block, onChange }: CodeEditorProps) => {
   const { code, language } = block.data;
 
   return (
     <div className="space-y-3 p-4 bg-surface/30 border border-border-subtle rounded-md">
-      {/* Header con label y selector */}
+      {/* Header with label and selector */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-sm text-text-secondary">
           <Code size={16} className="text-accent" />
-          Codigo
+          Code
         </div>
 
         <select
@@ -52,11 +52,11 @@ export const CodeEditor = ({ block, onChange }: CodeEditorProps) => {
         </select>
       </div>
 
-      {/* Textarea para codigo */}
+      {/* Textarea for code */}
       <textarea
         value={code || ""}
         onChange={(e) => onChange({ ...block.data, code: e.target.value })}
-        placeholder="Escribe o pega tu codigo aqui..."
+        placeholder="Write or paste your code here..."
         className="w-full px-4 py-3 bg-background border border-border rounded-md text-text-primary font-mono text-sm placeholder:text-text-placeholder focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors resize-y min-h-[120px]"
         rows={6}
         spellCheck={false}

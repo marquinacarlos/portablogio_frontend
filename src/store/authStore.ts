@@ -10,7 +10,7 @@ interface AuthState {
   initialize: () => void;
 }
 
-// Helpers para localStorage
+// localStorage helpers
 const TOKEN_KEY = "auth_token";
 const USER_KEY = "auth_user";
 
@@ -49,7 +49,7 @@ const clearStoredAuth = (): void => {
   }
 };
 
-// Decodificar payload del JWT (sin verificar firma)
+// Decode the JWT payload (without verifying the signature)
 const decodeToken = (token: string): AuthUser | null => {
   try {
     const payload = token.split(".")[1];
@@ -63,12 +63,12 @@ const decodeToken = (token: string): AuthUser | null => {
   }
 };
 
-// Verificar si el token ha expirado
+// Check if the token has expired
 const isTokenExpired = (token: string): boolean => {
   try {
     const payload = token.split(".")[1];
     const decoded = JSON.parse(atob(payload));
-    const exp = decoded.exp * 1000; // convertir a milliseconds
+    const exp = decoded.exp * 1000; // convert to milliseconds
     return Date.now() >= exp;
   } catch {
     return true;
@@ -80,7 +80,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   isAuthenticated: false,
 
-  // Inicializar desde localStorage (llamar al montar la app)
+  // Initialize from localStorage (call when the app mounts)
   initialize: () => {
     const token = getStoredToken();
     const user = getStoredUser();
@@ -88,24 +88,24 @@ export const useAuthStore = create<AuthState>((set) => ({
     if (token && user && !isTokenExpired(token)) {
       set({ token, user, isAuthenticated: true });
     } else {
-      // Token expirado o inválido, limpiar
+      // Expired or invalid token, clear it
       clearStoredAuth();
       set({ token: null, user: null, isAuthenticated: false });
     }
   },
 
-  // Login: guardar token y usuario
+  // Login: save token and user
   login: (token, user) => {
     setStoredAuth(token, user);
     set({ token, user, isAuthenticated: true });
   },
 
-  // Logout: limpiar todo
+  // Logout: clear everything
   logout: () => {
     clearStoredAuth();
     set({ token: null, user: null, isAuthenticated: false });
   },
 }));
 
-// Exportar helpers para uso externo
+// Export helpers for external use
 export { decodeToken, isTokenExpired };

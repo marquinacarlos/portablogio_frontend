@@ -10,7 +10,7 @@ interface BlockWrapperProps {
 }
 
 /**
- * Wrapper para bloques de contenido con controles de mover y eliminar
+ * Wrapper for content blocks with move and delete controls
  */
 export const BlockWrapper = ({
   children,
@@ -25,14 +25,14 @@ export const BlockWrapper = ({
 
   return (
     <div className="relative flex gap-3">
-      {/* Controles laterales - siempre visibles */}
+      {/* Side controls - always visible */}
       <div className="flex flex-col items-center gap-1 pt-2 shrink-0">
         <button
           type="button"
           onClick={onMoveUp}
           disabled={isFirst}
           className="p-1.5 text-text-muted hover:text-accent hover:bg-accent/10 rounded disabled:opacity-20 disabled:cursor-not-allowed transition-colors"
-          title="Mover arriba"
+          title="Move up"
         >
           <ChevronUp size={16} />
         </button>
@@ -42,7 +42,7 @@ export const BlockWrapper = ({
           onClick={onMoveDown}
           disabled={isLast}
           className="p-1.5 text-text-muted hover:text-accent hover:bg-accent/10 rounded disabled:opacity-20 disabled:cursor-not-allowed transition-colors"
-          title="Mover abajo"
+          title="Move down"
         >
           <ChevronDown size={16} />
         </button>
@@ -51,13 +51,13 @@ export const BlockWrapper = ({
           type="button"
           onClick={onDelete}
           className="p-1.5 text-error/60 hover:text-error hover:bg-error/10 rounded transition-colors"
-          title="Eliminar bloque"
+          title="Delete block"
         >
           <Trash2 size={16} />
         </button>
       </div>
 
-      {/* Contenido del bloque */}
+      {/* Block content */}
       <div className="flex-1">{children}</div>
     </div>
   );

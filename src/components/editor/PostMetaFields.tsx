@@ -17,17 +17,17 @@ interface PostMetaFieldsProps {
 }
 
 /**
- * Genera un slug URL-safe a partir de un titulo
+ * Generates a URL-safe slug from a title
  */
 const generateSlug = (title: string): string => {
   return title
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // Quitar acentos
-    .replace(/[^a-z0-9\s-]/g, "") // Solo letras, numeros, espacios y guiones
-    .replace(/\s+/g, "-") // Espacios a guiones
-    .replace(/-+/g, "-") // Multiples guiones a uno
-    .replace(/^-|-$/g, ""); // Quitar guiones al inicio/final
+    .replace(/[\u0300-\u036f]/g, "") // Remove accents
+    .replace(/[^a-z0-9\s-]/g, "") // Letters, numbers, spaces and dashes only
+    .replace(/\s+/g, "-") // Spaces to dashes
+    .replace(/-+/g, "-") // Multiple dashes to one
+    .replace(/^-|-$/g, ""); // Remove leading/trailing dashes
 };
 
 const inputClasses =
@@ -36,7 +36,7 @@ const inputClasses =
 const labelClasses = "flex items-center gap-2 text-sm text-text-primary/80";
 
 /**
- * Campos de metadatos del post (titulo, slug, excerpt, cover, status)
+ * Post metadata fields (title, slug, excerpt, cover, status)
  */
 export const PostMetaFields = ({
   title,
@@ -54,7 +54,7 @@ export const PostMetaFields = ({
   const debounceRef = useRef<number | null>(null);
   const slugManuallyEdited = useRef(false);
 
-  // Auto-generar slug cuando cambia el titulo (solo si no se ha editado manualmente)
+  // Auto-generate the slug when the title changes (only if not manually edited)
   useEffect(() => {
     if (isEditing || slugManuallyEdited.current) return;
 
@@ -83,17 +83,17 @@ export const PostMetaFields = ({
 
   return (
     <div className="space-y-4 p-4 bg-surface/30 border border-border-subtle rounded-md">
-      {/* Titulo */}
+      {/* Title */}
       <div className="space-y-2">
         <label className={labelClasses}>
           <FileText size={16} className="text-accent" />
-          Titulo del articulo
+          Article title
         </label>
         <input
           type="text"
           value={title}
           onChange={(e) => onTitleChange(e.target.value)}
-          placeholder="Escribe el titulo..."
+          placeholder="Write the title..."
           className={inputClasses}
           autoFocus
         />
@@ -103,7 +103,7 @@ export const PostMetaFields = ({
       <div className="space-y-2">
         <label className={labelClasses}>
           <LinkIcon size={16} className="text-accent" />
-          URL del articulo
+          Article URL
         </label>
         <div className="flex items-center gap-2">
           <span className="text-text-muted text-sm">/blog/</span>
@@ -111,7 +111,7 @@ export const PostMetaFields = ({
             type="text"
             value={slug}
             onChange={(e) => handleSlugChange(e.target.value)}
-            placeholder="url-del-articulo"
+            placeholder="article-url"
             className={`${inputClasses} flex-1`}
           />
         </div>
@@ -121,12 +121,12 @@ export const PostMetaFields = ({
       <div className="space-y-2">
         <label className={labelClasses}>
           <Eye size={16} className="text-accent" />
-          Resumen (opcional)
+          Summary (optional)
         </label>
         <textarea
           value={excerpt}
           onChange={(e) => onExcerptChange(e.target.value)}
-          placeholder="Breve descripcion que aparecera en listados..."
+          placeholder="Short description shown in listings..."
           className={`${inputClasses} resize-none`}
           rows={2}
         />
@@ -136,13 +136,13 @@ export const PostMetaFields = ({
       <div className="space-y-2">
         <label className={labelClasses}>
           <FileImage size={16} className="text-accent" />
-          Imagen de portada (URL)
+          Cover image (URL)
         </label>
         <input
           type="url"
           value={coverImageUrl}
           onChange={(e) => onCoverImageUrlChange(e.target.value)}
-          placeholder="https://ejemplo.com/imagen.jpg"
+          placeholder="https://example.com/image.jpg"
           className={inputClasses}
         />
         {coverImageUrl && (
@@ -161,7 +161,7 @@ export const PostMetaFields = ({
 
       {/* Status */}
       <div className="space-y-2">
-        <label className={labelClasses}>Estado</label>
+        <label className={labelClasses}>Status</label>
         <div className="flex gap-3">
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -172,7 +172,7 @@ export const PostMetaFields = ({
               onChange={() => onStatusChange("draft")}
               className="accent-accent"
             />
-            <span className="text-text-primary/80">Borrador</span>
+            <span className="text-text-primary/80">Draft</span>
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -183,7 +183,7 @@ export const PostMetaFields = ({
               onChange={() => onStatusChange("published")}
               className="accent-accent"
             />
-            <span className="text-text-primary/80">Publicado</span>
+            <span className="text-text-primary/80">Published</span>
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -194,7 +194,7 @@ export const PostMetaFields = ({
               onChange={() => onStatusChange("archived")}
               className="accent-accent"
             />
-            <span className="text-text-primary/80">Archivado</span>
+            <span className="text-text-primary/80">Archived</span>
           </label>
         </div>
       </div>

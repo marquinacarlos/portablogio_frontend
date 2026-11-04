@@ -7,50 +7,69 @@ import type { Project } from "../types";
 const projects: Project[] = [
   {
     id: 1,
-    title: "Flowventory",
-    url: "https://github.com/marquinacarlos/Flowventory-Mini-Backend",
+    title: "IMeet",
+    url: "https://imeet-platform.netlify.app/",
+    repo_url: "https://github.com/SlotsForMentoring/Slots",
     description:
-      "Una aplicación POS (Point of Sale) para el manejo, gestión y control de inventario para tiendas de cualquier tipo.",
+      "Final project, MigraCode bootcamp. Tech Lead of a team of 4: led the group from architecture to deployment, built the backend with Python, FastAPI and PostgreSQL, and connected it to Google Calendar and Meet so each booking creates the session automatically. Discontinued; redeployed as a demo.",
     tech_stack: [
-      "JavaScript",
-      "React",
-      "Supabase",
-      "Storage",
-      "Auth",
-      "SQL",
+      "Python",
+      "FastAPI",
       "PostgreSQL",
+      "React",
+      "TailwindCSS",
+      "Google OAuth",
     ],
+    date: "June 2026 - July 2026",
   },
   {
     id: 2,
     title: "Minitweet",
-    url: "https://github.com/marquinacarlos/minitweet",
+    url: "https://minitweet.netlify.app/",
+    repo_url: "https://github.com/marquinacarlos/minitweet",
     description:
-      "Una red social inspirada en Reddit y Twitter para compartir ideas, fotos, interactuar con publicaciones y chatear.",
+      "Vue course project, Escuela Da Vinci. Solo developer: a Reddit-inspired social network with Vue and Firebase, with my own authentication and authorization system, real-time comments and private chat. Installable PWA.",
     tech_stack: [
       "JavaScript",
       "Vue",
       "Firebase",
       "Firestore",
-      "Auth",
-      "NoSQL",
+      "PWA",
     ],
+    date: "September 2024 - December 2024",
+  },
+  {
+    id: 3,
+    title: "Flowventory",
+    url: "https://github.com/marquinacarlos/Flowventory-Mini-Backend",
+    repo_url: "https://github.com/marquinacarlos/Flowventory-Mini-Backend",
+    description:
+      "A point-of-sale (POS) application to manage, handle and control inventory for stores of any kind.",
+    tech_stack: [
+      "JavaScript",
+      "React",
+      "Supabase",
+      "SQL",
+      "PostgreSQL",
+    ],
+    date: "In development",
+    inDevelopment: true,
   },
 ];
 
 export const ProjectsPage = () => {
   return (
     <>
-      <Subtitle>Proyectos</Subtitle>
+      <Subtitle>Projects</Subtitle>
 
-      {/* Introducción */}
+      {/* Introduction */}
       <section className="space-y-2">
         <p className="text-lg text-text-primary/90 leading-relaxed max-w-2xl">
-          Una selección de proyectos en los que he trabajado.
+          A selection of projects I've worked on.
         </p>
         <p className="text-text-secondary leading-relaxed max-w-2xl">
-          Cada proyecto representa un desafío único donde apliqué diferentes
-          tecnologías y patrones de desarrollo.
+          Each project was a real challenge where I applied different
+          technologies and development practices.
         </p>
       </section>
 
@@ -59,19 +78,19 @@ export const ProjectsPage = () => {
         <div className="flex items-center gap-2 px-4 py-2 bg-surface/50 border border-border-subtle rounded-md">
           <Code2 className="text-brand" size={20} />
           <span className="text-text-primary font-semibold">{projects.length}</span>
-          <span className="text-text-muted text-sm">proyectos</span>
+          <span className="text-text-muted text-sm">projects</span>
         </div>
         <div className="flex items-center gap-2 px-4 py-2 bg-surface/50 border border-border-subtle rounded-md">
           <ExternalLink className="text-accent" size={20} />
-          <span className="text-text-muted text-sm">Click en el título para ver más</span>
+          <span className="text-text-muted text-sm">Click the title to see more</span>
         </div>
       </section>
 
-      {/* Lista de proyectos */}
+      {/* Project list */}
       <section className="space-y-4">
         <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
           <Code2 className="text-brand" size={24} />
-          Mis proyectos
+          My projects
         </h3>
         <List>
           {projects.map((project) => (
@@ -82,14 +101,14 @@ export const ProjectsPage = () => {
 
       {/* Quote */}
       <Blockquote className="max-w-xl border-l-4 border-orange-400">
-        Cada línea de código es una oportunidad para aprender algo nuevo.
+        Every line of code is a chance to learn something new.
       </Blockquote>
 
-      {/* Cierre */}
+      {/* Closing */}
       <section className="pt-4 border-t border-border/50">
         <p className="text-text-secondary text-sm leading-relaxed max-w-2xl">
-          ¿Te gustaría ver más proyectos o conocer los detalles técnicos?
-          Contáctame y con gusto te cuento más sobre mi trabajo.
+          Would you like to see more projects or hear the technical details?
+          Contact me and I'll gladly tell you more about my work.
         </p>
       </section>
     </>

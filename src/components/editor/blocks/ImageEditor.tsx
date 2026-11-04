@@ -10,7 +10,7 @@ const inputClasses =
   "w-full px-4 py-3 bg-surface/50 border border-border rounded-md text-text-primary placeholder:text-text-placeholder focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors";
 
 /**
- * Editor de bloque de imagen con URL y caption
+ * Image block editor with URL and caption
  */
 export const ImageEditor = ({ block, onChange }: ImageEditorProps) => {
   const { url, caption } = block.data;
@@ -20,7 +20,7 @@ export const ImageEditor = ({ block, onChange }: ImageEditorProps) => {
       {/* Label */}
       <div className="flex items-center gap-2 text-sm text-text-secondary">
         <Image size={16} className="text-accent" />
-        Imagen
+        Image
       </div>
 
       {/* URL input */}
@@ -28,7 +28,7 @@ export const ImageEditor = ({ block, onChange }: ImageEditorProps) => {
         type="url"
         value={url || ""}
         onChange={(e) => onChange({ ...block.data, url: e.target.value })}
-        placeholder="URL de la imagen (ej: https://placehold.co/600x400)"
+        placeholder="Image URL (e.g.: https://placehold.co/600x400)"
         className={inputClasses}
       />
 
@@ -44,7 +44,7 @@ export const ImageEditor = ({ block, onChange }: ImageEditorProps) => {
               target.style.display = "none";
               target.parentElement!.innerHTML = `
                 <div class="flex items-center justify-center h-full text-text-muted text-sm">
-                  Error cargando imagen
+                  Error loading image
                 </div>
               `;
             }}
@@ -57,7 +57,7 @@ export const ImageEditor = ({ block, onChange }: ImageEditorProps) => {
         type="text"
         value={caption || ""}
         onChange={(e) => onChange({ ...block.data, caption: e.target.value })}
-        placeholder="Descripcion de la imagen (opcional)"
+        placeholder="Image description (optional)"
         className={`${inputClasses} text-sm`}
       />
     </div>

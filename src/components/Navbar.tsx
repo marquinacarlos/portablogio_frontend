@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { Logo } from './Logo';
 import { ThemeSelector } from './ThemeSelector';
 
-// Estilos para links de navegacion con estado activo
+// Styles for nav links with active state
 const navLinkClasses = ({ isActive }: { isActive: boolean }) =>
   clsx(
     'transition-colors',
@@ -71,7 +71,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
           onClick={onClose}
           className={navLinkClasses}
         >
-          Inicio
+          Home
         </NavLink>
       </li>
       <li>
@@ -80,7 +80,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
           onClick={onClose}
           className={navLinkClasses}
         >
-          Proyectos
+          Projects
         </NavLink>
       </li>
       <li>
@@ -89,7 +89,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
           onClick={onClose}
           className={navLinkClasses}
         >
-          Servicios
+          Services
         </NavLink>
       </li>
       {/* <li>
@@ -107,7 +107,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
           onClick={onClose}
           className={navLinkClasses}
         >
-          Sobre mí
+          About
         </NavLink>
       </li>
       <li>
@@ -116,7 +116,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
           onClick={onClose}
           className={navLinkClasses}
         >
-          Contacto
+          Contact
         </NavLink>
       </li>
       {/* <li>
@@ -128,7 +128,7 @@ const Menu = ({ isOpen, onClose }: MenuProps) => {
           Admin
         </NavLink>
       </li> */}
-      {/* ThemeSelector solo visible en menu movil (no tablet ni desktop) */}
+      {/* ThemeSelector only visible in mobile menu (not tablet or desktop) */}
       <li className="sm:hidden pt-4 border-t border-border/30">
         <ThemeSelector />
       </li>
@@ -150,7 +150,7 @@ export const Navbar = () => {
       <nav className='h-auto lg:flex lg:justify-between lg:items-center lg:pr-4 max-w-7xl lg:mx-auto lg:w-full'>
         <div className="flex items-center gap-2">
           <Logo />
-          {/* ThemeSelector visible en tablet y desktop (fuera del menu) */}
+          {/* ThemeSelector visible on tablet and desktop (outside the menu) */}
           <div className="hidden sm:block">
             <ThemeSelector />
           </div>

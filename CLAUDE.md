@@ -7,7 +7,7 @@
 **Proyecto:** Portfolio y Blog personal de Carlos Marquina
 **Propósito:** Portafolio profesional con secciones de proyectos, servicios, blog y contacto
 **Estado:** En desarrollo activo
-**Idioma del contenido:** Español
+**Idioma del contenido:** Inglés (traducido en noviembre 2026; antes era español)
 **Idioma del código:** Inglés
 
 ---

@@ -24,27 +24,27 @@ type FilterOption = PostStatus | "all";
 
 const statusConfig: Record<PostStatus, { label: string; icon: React.ReactNode; color: string }> = {
   published: {
-    label: "Publicado",
+    label: "Published",
     icon: <CheckCircle size={14} />,
     color: "text-success bg-success/10 border-success/30",
   },
   draft: {
-    label: "Borrador",
+    label: "Draft",
     icon: <Clock size={14} />,
     color: "text-warning bg-warning/10 border-warning/30",
   },
   archived: {
-    label: "Archivado",
+    label: "Archived",
     icon: <Archive size={14} />,
     color: "text-text-muted bg-text-muted/10 border-text-muted/30",
   },
 };
 
 const filterOptions: { value: FilterOption; label: string }[] = [
-  { value: "all", label: "Todos" },
-  { value: "published", label: "Publicados" },
-  { value: "draft", label: "Borradores" },
-  { value: "archived", label: "Archivados" },
+  { value: "all", label: "All" },
+  { value: "published", label: "Published" },
+  { value: "draft", label: "Drafts" },
+  { value: "archived", label: "Archived" },
 ];
 
 export const AdminPage = () => {
@@ -60,7 +60,7 @@ export const AdminPage = () => {
         const response = await api.get<ApiResponse<(BlogPostSummary & { status: PostStatus })[]>>("/posts/admin");
         setPosts(response.data.data);
       } catch {
-        setError("Error al cargar los posts");
+        setError("Error loading posts");
       } finally {
         setIsLoading(false);
       }
@@ -69,13 +69,13 @@ export const AdminPage = () => {
     fetchPosts();
   }, []);
 
-  // Filtrar posts segun el filtro seleccionado
+  // Filter posts by the selected filter
   const filteredPosts = useMemo(() => {
     if (filter === "all") return posts;
     return posts.filter((post) => post.status === filter);
   }, [posts, filter]);
 
-  // Contar posts por estado
+  // Count posts by status
   const counts = useMemo(() => {
     return {
       all: posts.length,
@@ -86,7 +86,7 @@ export const AdminPage = () => {
   }, [posts]);
 
   const formatDate = (dateString: string): string => {
-    return new Date(dateString).toLocaleDateString("es-ES", {
+    return new Date(dateString).toLocaleDateString("en-GB", {
       day: "numeric",
       month: "short",
       year: "numeric",
@@ -94,7 +94,7 @@ export const AdminPage = () => {
   };
 
   const handleDelete = async (slug: string) => {
-    if (!confirm("¿Estas seguro de que quieres eliminar este post?")) {
+    if (!confirm("Are you sure you want to delete this post?")) {
       return;
     }
 
@@ -102,15 +102,15 @@ export const AdminPage = () => {
       await api.delete(`/posts/${slug}`);
       setPosts(posts.filter((p) => p.slug !== slug));
     } catch {
-      alert("Error al eliminar el post");
+      alert("Error deleting the post");
     }
   };
 
   return (
     <>
-      <Subtitle>Panel de administración</Subtitle>
+      <Subtitle>Admin panel</Subtitle>
 
-      {/* Header con info de usuario */}
+      {/* Header with user info */}
       <section className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center">
@@ -118,9 +118,9 @@ export const AdminPage = () => {
           </div>
           <div>
             <p className="text-text-primary font-medium">
-              Bienvenido, {user?.username}
+              Welcome, {user?.username}
             </p>
-            <p className="text-text-muted text-sm">Administrador</p>
+            <p className="text-text-muted text-sm">Administrator</p>
           </div>
         </div>
 
@@ -129,31 +129,31 @@ export const AdminPage = () => {
           className="flex items-center gap-2 px-3 py-2 text-sm text-text-secondary hover:text-error transition-colors"
         >
           <LogOut size={16} />
-          Cerrar sesión
+          Log out
         </button>
       </section>
 
-      {/* Acciones rápidas */}
+      {/* Quick actions */}
       <section className="space-y-4">
         <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
           <Plus className="text-brand" size={24} />
-          Acciones rápidas
+          Quick actions
         </h3>
 
         <div className="flex flex-wrap gap-3">
           <Link to="/admin/posts/new">
             <ButtonWithIcon icon={<FileText size={18} />}>
-              Nuevo artículo
+              New article
             </ButtonWithIcon>
           </Link>
         </div>
       </section>
 
-      {/* Lista de posts */}
+      {/* Post list */}
       <section className="space-y-4">
         <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
           <FileText className="text-brand" size={24} />
-          Mis articulos
+          My articles
           {posts.length > 0 && (
             <span className="text-sm font-normal text-text-muted">
               ({posts.length})
@@ -161,7 +161,7 @@ export const AdminPage = () => {
           )}
         </h3>
 
-        {/* Filtros con scroll horizontal */}
+        {/* Filters with horizontal scroll */}
         {posts.length > 0 && (
           <div
             className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1"
@@ -196,7 +196,7 @@ export const AdminPage = () => {
         {isLoading && (
           <div className="flex items-center gap-3 text-text-secondary">
             <div className="w-5 h-5 border-2 border-accent border-t-transparent rounded-full animate-spin" />
-            <span>Cargando articulos...</span>
+            <span>Loading articles...</span>
           </div>
         )}
 
@@ -207,30 +207,30 @@ export const AdminPage = () => {
           </div>
         )}
 
-        {/* Lista vacia */}
+        {/* Empty list */}
         {!isLoading && !error && posts.length === 0 && (
           <div className="p-6 bg-surface/50 border border-border-subtle rounded-md text-center">
             <FileText className="mx-auto text-text-muted mb-3" size={48} />
-            <p className="text-text-secondary">No hay articulos todavia.</p>
+            <p className="text-text-secondary">No articles yet.</p>
             <p className="text-text-muted text-sm mt-1">
-              Crea tu primer articulo
+              Create your first article
             </p>
             <Link to="/admin/posts/new" className="inline-block mt-4">
               <ButtonWithIcon icon={<Plus size={18} />}>
-                Crear articulo
+                Create article
               </ButtonWithIcon>
             </Link>
           </div>
         )}
 
-        {/* Lista filtrada vacia */}
+        {/* Filtered list is empty */}
         {!isLoading && !error && posts.length > 0 && filteredPosts.length === 0 && (
           <div className="p-6 bg-surface/50 border border-border-subtle rounded-md text-center">
-            <p className="text-text-secondary">No hay articulos con este estado.</p>
+            <p className="text-text-secondary">No articles with this status.</p>
           </div>
         )}
 
-        {/* Lista de posts */}
+        {/* Post list */}
         {!isLoading && !error && filteredPosts.length > 0 && (
           <ul className="space-y-3">
             {filteredPosts.map((post) => {
@@ -241,7 +241,7 @@ export const AdminPage = () => {
                   className="p-4 bg-surface/50 border border-border-subtle rounded-md hover:border-border transition-colors"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                    {/* Info del post */}
+                    {/* Post info */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
                         <h4 className="text-text-primary font-medium truncate">
@@ -263,26 +263,26 @@ export const AdminPage = () => {
                       </div>
                     </div>
 
-                    {/* Acciones */}
+                    {/* Actions */}
                     <div className="flex items-center gap-2 shrink-0">
                       <Link
                         to={`/blog/${post.slug}`}
                         className="p-2 text-text-muted hover:text-accent transition-colors"
-                        title="Ver"
+                        title="View"
                       >
                         <Eye size={18} />
                       </Link>
                       <Link
                         to={`/admin/posts/${post.slug}/edit`}
                         className="p-2 text-text-muted hover:text-brand transition-colors"
-                        title="Editar"
+                        title="Edit"
                       >
                         <Edit size={18} />
                       </Link>
                       <button
                         onClick={() => handleDelete(post.slug)}
                         className="p-2 text-text-muted hover:text-error transition-colors"
-                        title="Eliminar"
+                        title="Delete"
                       >
                         <Trash2 size={18} />
                       </button>
@@ -298,8 +298,8 @@ export const AdminPage = () => {
       {/* Info */}
       <section className="pt-4 border-t border-border/50">
         <p className="text-text-muted text-sm">
-          Panel de administración del blog. Aquí puedes gestionar todos tus
-          artículos.
+          Blog admin panel. Here you can manage all your
+          articles.
         </p>
       </section>
     </>

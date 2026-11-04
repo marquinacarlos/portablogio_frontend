@@ -50,7 +50,7 @@ export const DownloadButton = ({
       downloadLink.download = typeof download === 'string' ? download : '';
       downloadLink.click();
       
-      // 2. Abrir en nueva pestaña
+      // 2. Open in a new tab
       const openLink = document.createElement('a');
       openLink.href = href;
       openLink.target = '_blank';

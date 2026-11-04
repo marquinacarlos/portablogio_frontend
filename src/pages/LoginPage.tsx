@@ -16,13 +16,13 @@ export const LoginPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Obtener la ruta de origen (si venía de una ruta protegida)
+  // Get the origin route (if it came from a protected route)
   const from = (location.state as { from?: { pathname: string } })?.from?.pathname || "/admin";
 
-  // Redirigir si ya está autenticado
+  // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated) {
-      // Pequeño delay para mostrar el estado de sesión activa
+      // Small delay to show the active session state
       const timer = setTimeout(() => {
         navigate(from, { replace: true });
       }, 2000);
@@ -38,28 +38,28 @@ export const LoginPage = () => {
     try {
       const response = await authService.login({ email, password });
 
-      // Decodificar el token para obtener info del usuario
+      // Decode the token to get user info
       const userData = decodeToken(response.token);
 
       if (!userData) {
-        throw new Error("Token inválido recibido del servidor");
+        throw new Error("Invalid token received from the server");
       }
 
-      // Guardar en el store
+      // Save to the store
       login(response.token, userData);
 
-      // La redirección se maneja en useEffect
+      // Redirection is handled in useEffect
     } catch (err) {
       if (err instanceof Error) {
-        // Errores de axios tienen response.data.error
+        // Axios errors have response.data.error
         const axiosError = err as { response?: { data?: { error?: string } } };
         setError(
           axiosError.response?.data?.error ||
             err.message ||
-            "Error al iniciar sesión"
+            "Error logging in"
         );
       } else {
-        setError("Error al iniciar sesión. Intenta de nuevo.");
+        setError("Error logging in. Please try again.");
       }
     } finally {
       setIsSubmitting(false);
@@ -75,11 +75,11 @@ export const LoginPage = () => {
   const inputClasses =
     "w-full px-4 py-3 bg-surface/50 border border-border rounded-md text-text-primary placeholder:text-text-placeholder focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors";
 
-  // Si está autenticado, mostrar estado de sesión activa
+  // If authenticated, show the active session state
   if (isAuthenticated && user) {
     return (
       <>
-        <Subtitle>Sesión activa</Subtitle>
+        <Subtitle>Active session</Subtitle>
 
         <section className="space-y-4">
           <div className="p-6 bg-surface/50 border border-success/30 rounded-md space-y-4">
@@ -87,29 +87,29 @@ export const LoginPage = () => {
               <CheckCircle className="text-success" size={32} />
               <div>
                 <p className="text-lg font-semibold text-text-primary">
-                  ¡Bienvenido, {user.username}!
+                  Welcome, {user.username}!
                 </p>
                 <p className="text-text-muted text-sm">
-                  Has iniciado sesión correctamente
+                  You're logged in successfully
                 </p>
               </div>
             </div>
 
             <p className="text-text-secondary text-sm">
-              Serás redirigido al panel de administración en unos segundos...
+              You'll be redirected to the admin panel in a few seconds...
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
               <Link to="/admin">
                 <ButtonWithIcon icon={<ArrowLeft size={18} />}>
-                  Ir al panel
+                  Go to panel
                 </ButtonWithIcon>
               </Link>
               <button
                 onClick={handleLogout}
                 className="px-4 py-2 border border-border rounded-md text-text-primary hover:border-error/50 hover:text-error transition-colors"
               >
-                Cerrar sesión
+                Log out
               </button>
             </div>
           </div>
@@ -120,25 +120,25 @@ export const LoginPage = () => {
 
   return (
     <>
-      <Subtitle>Iniciar sesión</Subtitle>
+      <Subtitle>Log in</Subtitle>
 
-      {/* Introducción */}
+      {/* Introduction */}
       <section className="space-y-2">
         <p className="text-lg text-text-primary/90 leading-relaxed max-w-xl">
-          Accede a tu cuenta para gestionar el contenido.
+          Log in to manage the content.
         </p>
         <p className="text-text-secondary leading-relaxed max-w-xl">
-          Esta sección está reservada para administradores.
+          This section is reserved for administrators.
         </p>
       </section>
 
-      {/* Formulario */}
+      {/* Form */}
       <section className="w-full max-w-md">
         <div className="p-6 bg-surface/50 border border-border-subtle rounded-md space-y-6">
           <div className="flex items-center gap-2">
             <LogIn className="text-brand" size={24} />
             <h3 className="text-lg font-semibold text-text-primary">
-              Credenciales
+              Credentials
             </h3>
           </div>
 
@@ -177,7 +177,7 @@ export const LoginPage = () => {
                 className="flex items-center gap-2 text-sm text-text-primary/80"
               >
                 <Lock size={16} className="text-accent" />
-                Contraseña
+                Password
               </label>
               <input
                 type="password"
@@ -216,20 +216,20 @@ export const LoginPage = () => {
                 isSubmitting ? "opacity-70 cursor-not-allowed" : ""
               }`}
             >
-              {isSubmitting ? "Iniciando sesión..." : "Iniciar sesión"}
+              {isSubmitting ? "Logging in..." : "Log in"}
             </ButtonWithIcon>
           </form>
         </div>
       </section>
 
-      {/* Volver */}
+      {/* Back */}
       <section className="pt-4 border-t border-border/50">
         <Link
           to="/"
           className="inline-flex items-center gap-2 text-text-secondary hover:text-accent transition-colors text-sm"
         >
           <ArrowLeft size={16} />
-          Volver al inicio
+          Back to home
         </Link>
       </section>
     </>

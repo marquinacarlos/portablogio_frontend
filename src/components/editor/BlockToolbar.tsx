@@ -14,23 +14,23 @@ interface BlockToolbarProps {
 }
 
 const blockOptions: { type: BlockType; label: string; icon: React.ReactNode }[] = [
-  { type: "paragraph", label: "Parrafo", icon: <Type size={16} /> },
-  { type: "header", label: "Titulo", icon: <Heading size={16} /> },
-  { type: "image", label: "Imagen", icon: <Image size={16} /> },
-  { type: "code", label: "Codigo", icon: <Code size={16} /> },
+  { type: "paragraph", label: "Paragraph", icon: <Type size={16} /> },
+  { type: "header", label: "Heading", icon: <Heading size={16} /> },
+  { type: "image", label: "Image", icon: <Image size={16} /> },
+  { type: "code", label: "Code", icon: <Code size={16} /> },
   { type: "video", label: "Video", icon: <Video size={16} /> },
-  { type: "quote", label: "Cita", icon: <Quote size={16} /> },
+  { type: "quote", label: "Quote", icon: <Quote size={16} /> },
 ];
 
 /**
- * Barra de herramientas para agregar nuevos bloques de contenido
+ * Toolbar to add new content blocks
  */
 export const BlockToolbar = ({ onAddBlock }: BlockToolbarProps) => {
   return (
     <div className="flex flex-wrap items-center gap-2 p-3 bg-surface/50 border border-border-subtle rounded-md">
       <span className="flex items-center gap-2 text-sm text-text-muted mr-2">
         <Plus size={16} className="text-accent" />
-        Agregar bloque:
+        Add block:
       </span>
 
       {blockOptions.map(({ type, label, icon }) => (

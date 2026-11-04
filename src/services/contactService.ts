@@ -14,7 +14,7 @@ interface ContactResponse {
 
 export const contactService = {
   /**
-   * Enviar mensaje de contacto
+   * Send a contact message
    */
   send: async (data: ContactFormData): Promise<ContactResponse> => {
     const response = await api.post<ContactResponse>("/contact", data);

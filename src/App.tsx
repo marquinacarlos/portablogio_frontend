@@ -26,7 +26,7 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        {/* Rutas públicas */}
+        {/* Public routes */}
         <Route index element={<HomePage />} />
         <Route path="projects" element={<ProjectsPage />} />
         <Route path="services" element={<ServicesPage />} />
@@ -36,7 +36,7 @@ export const App = () => {
         <Route path="contact" element={<ContactPage />} />
         <Route path="login" element={<LoginPage />} />
 
-        {/* Rutas protegidas (requieren autenticación) */}
+        {/* Protected routes (require authentication) */}
         <Route
           path="admin"
           element={

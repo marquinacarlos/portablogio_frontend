@@ -4,18 +4,17 @@ import { Blockquote } from "../components/Blockquote";
 import { ButtonWithIcon, DownloadButton } from "../components/ButtonWithIcon";
 
 const technologies = [
-  { name: "TypeScript", category: "language" },
+  { name: "PostgreSQL", category: "database" },
+  { name: "Express", category: "backend" },
   { name: "React", category: "frontend" },
   { name: "Node.js", category: "backend" },
-  { name: "Express", category: "backend" },
-  { name: "PostgreSQL", category: "database" },
-  { name: "REST APIs", category: "backend" },
-  { name: "Git", category: "tools" },
+  { name: "TailwindCSS", category: "frontend" },
+  { name: "GitHub", category: "tools" },
 ];
 
 const email = "contact@carlosmarquina.dev";
-const subject = "Hola Carlos";
-const body = "Hola Carlos,\n\nSoy [TU_NOMBRE] y te escribo porque...";
+const subject = "Hello Carlos";
+const body = "Hi Carlos,\n\nI'm [YOUR NAME] and I'm reaching out because...";
 
 const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
@@ -40,16 +39,16 @@ const socialLinks = [
 
 const highlights = [
   {
-    title: "Código limpio",
-    description: "Soluciones legibles y mantenibles",
+    title: "Clean code",
+    description: "Readable, maintainable solutions",
   },
   {
-    title: "Full Stack",
-    description: "Frontend y backend integrados",
+    title: "Full stack",
+    description: "Frontend and backend, connected end to end",
   },
   {
-    title: "En constante aprendizaje",
-    description: "Siempre explorando nuevas tecnologías",
+    title: "Always learning",
+    description: "Adapted to a new stack (Python, FastAPI) to lead IMeet",
   },
 ];
 
@@ -59,31 +58,33 @@ export const HomePage = () => {
       {/* Hero */}
       <section className="space-y-4">
         <div className="space-y-2">
-          <p className="text-accent font-medium tracking-wide">¡Hola! Soy Carlos Marquina</p>
+          <p className="text-accent font-medium tracking-wide">Hi! I'm Carlos Marquina</p>
           <h2 className="text-3xl lg:text-5xl text-brand font-extrabold uppercase leading-tight">
-            Desarrollador
+            Full-Stack
             <br />
-            <span className="text-accent">Full Stack</span>
+            <span className="text-accent">Web Developer</span>
           </h2>
         </div>
 
         <p className="text-lg text-text-primary/90 leading-relaxed max-w-xl">
-          Especializado en{" "}
-          <span className="text-accent font-semibold">React</span>,{" "}
-          <span className="text-accent font-semibold">Node.js</span> y{" "}
-          <span className="text-accent font-semibold">PostgreSQL</span>.
-          Transformo ideas en aplicaciones web funcionales, escalables y con código limpio.
+          I work mainly with the{" "}
+          <span className="text-accent font-semibold">PERN stack</span>:{" "}
+          <span className="text-accent font-semibold">PostgreSQL</span>,{" "}
+          <span className="text-accent font-semibold">Express</span>,{" "}
+          <span className="text-accent font-semibold">React</span> and{" "}
+          <span className="text-accent font-semibold">Node.js</span>.
+          I turn ideas into working web applications with clean code.
         </p>
       </section>
 
-      {/* Acciones principales */}
+      {/* Main actions */}
       <section className="flex flex-wrap gap-4 items-center">
-          <DownloadButton 
-            href="/documents/carlos_marquina_cv_es.pdf" 
-            download="carlos_marquina_cv.pdf" 
+          <DownloadButton
+            href="/documents/carlos_marquina_cv_en.pdf"
+            download="carlos_marquina_cv.pdf"
             openInNewTab={true}
           >
-            Descargar CV
+            Download CV
           </DownloadButton>
 
         <div className="flex gap-3 items-center">
@@ -104,14 +105,14 @@ export const HomePage = () => {
 
       {/* Quote */}
       <Blockquote className="max-w-xl border-l-4 border-brand">
-        Ser desarrollador no es tener todas las respuestas, sino saber cómo encontrarlas.
+        Being a developer is not about having every answer — it's about knowing how to find them.
       </Blockquote>
 
-      {/* Stack técnico */}
+      {/* Tech stack */}
       <section className="space-y-4">
         <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
           <Code2 className="text-brand" size={24} />
-          Stack tecnológico
+          Tech stack
         </h3>
         <div className="flex flex-wrap gap-2">
           {technologies.map((tech) => (
@@ -129,7 +130,7 @@ export const HomePage = () => {
       <section className="space-y-4">
         <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
           <Briefcase className="text-brand" size={24} />
-          Lo que ofrezco
+          What I offer
         </h3>
         <div className="grid gap-3 sm:grid-cols-3">
           {highlights.map((item) => (
@@ -147,33 +148,33 @@ export const HomePage = () => {
       {/* CTAs */}
       <section className="space-y-4">
         <h3 className="text-xl font-bold text-text-primary">
-          ¿Listo para comenzar?
+          Ready to start?
         </h3>
         <div className="flex flex-wrap gap-3">
           <Link to="/projects">
             <ButtonWithIcon icon={<Code2 size={18} />}>
-              Ver proyectos
+              View projects
             </ButtonWithIcon>
           </Link>
           <Link to="/services">
             <ButtonWithIcon icon={<Briefcase size={18} />}>
-              Mis servicios
+              My services
             </ButtonWithIcon>
           </Link>
           <Link to="/contact">
             <ButtonWithIcon icon={<ArrowRight size={18} />}>
-              Contáctame
+              Contact me
             </ButtonWithIcon>
           </Link>
         </div>
       </section>
 
-      {/* Cierre */}
+      {/* Closing */}
       <section className="pt-4 border-t border-border/50">
         <p className="text-text-secondary text-sm leading-relaxed max-w-2xl">
-          Apasionado por resolver problemas complejos con soluciones simples.
-          Busco oportunidades donde pueda aportar mis habilidades técnicas,
-          colaborar con equipos talentosos y seguir creciendo como desarrollador.
+          I enjoy turning complex problems into simple, working solutions.
+          I'm looking for opportunities to apply my technical skills,
+          work with experienced teams, and keep growing as a developer.
         </p>
       </section>
     </>

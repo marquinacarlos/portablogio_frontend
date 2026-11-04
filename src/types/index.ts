@@ -1,5 +1,5 @@
 // =============================================================================
-// TIPOS SINCRONIZADOS CON BACKEND (portablogio_backend)
+// TYPES SYNCED WITH BACKEND (portablogio_backend)
 // =============================================================================
 
 // -----------------------------------------------------------------------------
@@ -28,7 +28,7 @@ export interface ContentBlock {
 export type PostType = "blog" | "collaboration";
 export type PostStatus = "draft" | "published" | "archived";
 
-/** Post completo (usado en detalle /blog/:slug) */
+/** Full post (used in /blog/:slug detail) */
 export interface BlogPost {
   id: number;
   user_id: number;
@@ -44,7 +44,7 @@ export interface BlogPost {
   updated_at?: string;
 }
 
-/** Post resumido para listados (sin content) */
+/** Summarized post for listings (no content) */
 export interface BlogPostSummary {
   id: number;
   title: string;
@@ -54,7 +54,7 @@ export interface BlogPostSummary {
   created_at: string;
 }
 
-/** Datos para crear un nuevo post */
+/** Data to create a new post */
 export interface CreatePostData {
   user_id: number;
   title: string;
@@ -67,7 +67,7 @@ export interface CreatePostData {
 }
 
 // -----------------------------------------------------------------------------
-// PROYECTOS
+// PROJECTS
 // -----------------------------------------------------------------------------
 
 export interface Project {
@@ -76,6 +76,8 @@ export interface Project {
   url: string;
   description: string;
   tech_stack: string[];
+  date: string;
+  inDevelopment?: boolean;
   image_url?: string;
   repo_url?: string;
   live_url?: string;
@@ -95,7 +97,7 @@ export interface CreateProjectData {
 }
 
 // -----------------------------------------------------------------------------
-// SERVICIOS
+// SERVICES
 // -----------------------------------------------------------------------------
 
 export interface Service {
@@ -116,7 +118,7 @@ export interface CreateServiceData {
 }
 
 // -----------------------------------------------------------------------------
-// AUTENTICACIÓN
+// AUTHENTICATION
 // -----------------------------------------------------------------------------
 
 export interface LoginRequest {
@@ -138,13 +140,13 @@ export interface AuthUser {
 // API RESPONSES
 // -----------------------------------------------------------------------------
 
-/** Respuesta genérica de la API */
+/** Generic API response */
 export interface ApiResponse<T> {
   data: T;
   message?: string;
 }
 
-/** Respuesta de error de la API */
+/** API error response */
 export interface ApiError {
   error: string;
 }

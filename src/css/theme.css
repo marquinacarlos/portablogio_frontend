@@ -2,9 +2,9 @@
    Sistema de Temas - Tailwind CSS v4
    =========================================== */
 
-/* Variables base del tema (valores por defecto = tema oscuro) */
+/* Base theme variables (default values = dark theme) */
 :root {
-  /* Brand Colors - Cyan scale para modo oscuro */
+  /* Brand Colors - Cyan scale for dark mode */
   --theme-brand: var(--color-cyan-400);
   --theme-brand-hover: var(--color-cyan-300);
   --theme-accent: var(--color-cyan-500);
@@ -15,7 +15,7 @@
   --theme-surface: var(--color-neutral-900);
   --theme-surface-hover: var(--color-neutral-800);
 
-  /* Text Colors - Neutral para mejor legibilidad */
+  /* Text Colors - Neutral for better readability */
   --theme-text-primary: var(--color-neutral-100);
   --theme-text-secondary: var(--color-neutral-300);
   --theme-text-muted: var(--color-neutral-400);
@@ -31,9 +31,9 @@
   --theme-warning: var(--color-amber-400);
 }
 
-/* Tema Claro - Blanco y negro clásico */
+/* Light Theme - Classic black and white */
 [data-theme="light"] {
-  /* Brand Colors - Negro/gris oscuro para modo claro */
+  /* Brand Colors - Black/dark gray for light mode */
   --theme-brand: var(--color-neutral-900);
   --theme-brand-hover: var(--color-neutral-700);
   --theme-accent: var(--color-neutral-600);
@@ -54,13 +54,13 @@
   --theme-border: var(--color-neutral-300);
   --theme-border-subtle: var(--color-neutral-200);
 
-  /* Feedback Colors - Más oscuros para contraste */
+  /* Feedback Colors - Darker for contrast */
   --theme-success: var(--color-green-600);
   --theme-error: var(--color-red-600);
   --theme-warning: var(--color-amber-600);
 }
 
-/* Definir colores semánticos en Tailwind v4 */
+/* Define semantic colors in Tailwind v4 */
 @theme {
   /* Brand */
   --color-brand: var(--theme-brand);
@@ -89,12 +89,12 @@
   --color-warning: var(--theme-warning);
 }
 
-/* Transición suave para cambio de tema */
+/* Smooth transition for theme switching */
 html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Aplicar fondo del tema al body */
+/* Apply theme background to the body */
 body {
   background-color: var(--theme-background);
   color: var(--theme-text-primary);

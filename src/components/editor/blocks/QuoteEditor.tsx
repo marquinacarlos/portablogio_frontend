@@ -8,12 +8,12 @@ interface QuoteEditorProps {
 }
 
 /**
- * Editor de bloque de cita con estilo visual
+ * Quote block editor with visual styling
  */
 export const QuoteEditor = ({ block, onChange }: QuoteEditorProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Auto-resize del textarea
+  // Auto-resize the textarea
   useEffect(() => {
     const textarea = textareaRef.current;
     if (textarea) {
@@ -33,7 +33,7 @@ export const QuoteEditor = ({ block, onChange }: QuoteEditorProps) => {
         ref={textareaRef}
         value={block.data.text || ""}
         onChange={(e) => onChange({ ...block.data, text: e.target.value })}
-        placeholder="Escribe una cita..."
+        placeholder="Write a quote..."
         className="w-full px-4 py-3 bg-surface/50 border border-border rounded-md text-text-primary italic placeholder:text-text-placeholder focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors resize-none overflow-hidden"
         rows={2}
       />

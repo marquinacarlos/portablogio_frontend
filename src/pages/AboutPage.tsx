@@ -3,58 +3,58 @@ import { Subtitle } from "../components/Subtitle";
 import { Blockquote } from "../components/Blockquote";
 
 const skills = {
-  frontend: ["React", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"],
-  backend: ["Node.js", "Express", "PostgreSQL", "REST APIs"],
-  tools: ["Git", "GitHub", "VS Code", "Vite", "Docker"],
+  frontend: ["React", "JavaScript", "HTML", "CSS", "TailwindCSS", "Vue"],
+  backend: ["Node.js", "Express", "PostgreSQL", "Python", "FastAPI", "SQL"],
+  tools: ["Git", "GitHub", "GitHub Projects", "Figma", "Docker (basic)"],
 };
 
 const values = [
   {
     icon: <Target className="text-brand" size={24} />,
-    title: "Código limpio",
-    description: "Escribo código legible, mantenible y bien documentado.",
+    title: "Clean code",
+    description: "I write readable, maintainable code.",
   },
   {
     icon: <Rocket className="text-brand" size={24} />,
-    title: "Aprendizaje continuo",
-    description: "Siempre estoy explorando nuevas tecnologías y mejores prácticas.",
+    title: "Continuous learning",
+    description: "I keep exploring new tools and better ways of working, like learning FastAPI for IMeet.",
   },
   {
     icon: <Heart className="text-brand" size={24} />,
-    title: "Pasión por resolver problemas",
-    description: "Disfruto transformar desafíos complejos en soluciones elegantes.",
+    title: "Clear communication",
+    description: "In IMeet, talking often with the team helped us avoid delays and solve problems fast.",
   },
 ];
 
 export const AboutPage = () => {
   return (
     <>
-      <Subtitle>Sobre mí</Subtitle>
+      <Subtitle>About me</Subtitle>
 
-      {/* Introducción */}
+      {/* Introduction */}
       <section className="space-y-4">
         <p className="text-lg text-text-primary/90 leading-relaxed max-w-2xl">
-          ¡Hola! Soy <span className="text-accent font-semibold">Carlos Marquina</span>,
-          desarrollador Full Stack apasionado por crear experiencias web que combinan
-          funcionalidad con diseño atractivo.
+          Hi! I'm <span className="text-accent font-semibold">Carlos Marquina</span>,
+          a Full Stack Developer with a practical approach. My priority is to build
+          and deliver solutions, with real commitment in every project.
         </p>
         <p className="text-text-secondary leading-relaxed max-w-2xl">
-          Mi viaje en el desarrollo comenzó con la curiosidad de entender cómo funcionan
-          las aplicaciones que usamos a diario. Esa curiosidad se transformó en una pasión
-          por construir soluciones digitales que realmente impacten.
+          I'm a MigraCode Barcelona graduate (July 2026), where I was Tech Lead on
+          IMeet, the bootcamp's final project. Before that, I built Minitweet on my
+          own during a Vue course at Escuela Da Vinci.
         </p>
       </section>
 
       {/* Quote */}
       <Blockquote className="max-w-xl border-l-4 border-orange-400">
-        El mejor código es aquel que no necesitas explicar.
+        The best code is the one you don't need to explain.
       </Blockquote>
 
-      {/* Habilidades técnicas */}
+      {/* Technical skills */}
       <section className="space-y-4">
         <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
           <Code2 className="text-brand" size={24} />
-          Habilidades técnicas
+          Technical skills
         </h3>
 
         <div className="grid gap-4 md:grid-cols-3">
@@ -92,7 +92,7 @@ export const AboutPage = () => {
 
           <div className="space-y-2">
             <h4 className="text-accent font-semibold text-sm uppercase tracking-wide">
-              Herramientas
+              Tools
             </h4>
             <div className="flex flex-wrap gap-2">
               {skills.tools.map((skill) => (
@@ -108,29 +108,33 @@ export const AboutPage = () => {
         </div>
       </section>
 
-      {/* Formación */}
+      {/* Education */}
       <section className="space-y-4">
         <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
           <GraduationCap className="text-brand" size={24} />
-          Formación
+          Education
         </h3>
         <div className="space-y-3">
           <div className="border-l-2 border-cyan-400/50 pl-4">
-            <p className="text-text-primary font-medium">Desarrollo Web Full Stack</p>
-            <p className="text-text-muted text-sm">Formación autodidacta y cursos especializados</p>
+            <p className="text-text-primary font-medium">Full-stack Web Developer (certified), MigraCode Barcelona</p>
+            <p className="text-text-muted text-sm">October 2025 - July 2026</p>
           </div>
           <div className="border-l-2 border-cyan-400/50 pl-4">
-            <p className="text-text-primary font-medium">Práctica constante</p>
-            <p className="text-text-muted text-sm">Proyectos personales y colaborativos</p>
+            <p className="text-text-primary font-medium">Higher Technical Degree in Web Development and Design, Escuela Da Vinci (Argentina)</p>
+            <p className="text-text-muted text-sm">August 2022 - present</p>
+          </div>
+          <div className="border-l-2 border-cyan-400/50 pl-4">
+            <p className="text-text-primary font-medium">Platzi, online training in technology and programming</p>
+            <p className="text-text-muted text-sm">2023 - present</p>
           </div>
         </div>
       </section>
 
-      {/* Valores */}
+      {/* Values */}
       <section className="space-y-4">
         <h3 className="text-xl font-bold text-text-primary flex items-center gap-2">
           <Coffee className="text-brand" size={24} />
-          Lo que me define
+          What defines me
         </h3>
         <div className="grid gap-4 md:grid-cols-3">
           {values.map((value) => (
@@ -148,13 +152,13 @@ export const AboutPage = () => {
         </div>
       </section>
 
-      {/* Cierre */}
+      {/* Closing */}
       <section className="pt-4 border-t border-border/50">
         <p className="text-text-secondary text-sm leading-relaxed max-w-2xl">
-          Actualmente busco mi primera oportunidad profesional donde pueda aportar mis
-          habilidades técnicas, aprender de equipos experimentados y seguir creciendo
-          como desarrollador. Si tienes un proyecto interesante o una oportunidad,
-          ¡me encantaría conocerla!
+          I'm currently looking for my first professional opportunity, where I can
+          apply my technical skills, learn from experienced teams, and keep growing
+          as a developer. If you have an interesting project or opportunity,
+          I'd love to hear about it!
         </p>
       </section>
     </>
