@@ -388,7 +388,7 @@ export const PostEditorPage = () => {
         isEditing={isEditing}
       />
 
-      {/* Contenido - Bloques */}
+      {/* Content - Blocks */}
       <section className="space-y-4">
         <h3 className="text-xl font-bold text-text-primary">Content</h3>
 
